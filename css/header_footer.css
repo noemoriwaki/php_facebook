@@ -1,0 +1,129 @@
+@import "reset.css";
+body{
+    width:100%;
+    height:auto;
+    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+    font-size: 16px;
+    background-color: #F2F3F5;
+    text-decoration: none;
+  }
+  /* header部分 */
+.header_logo{
+    background-color:  #4267b2;
+    padding:6px 3px 0;
+}
+
+.header_top{
+    width: 100%;
+    position: relative;
+}
+.header_seach input[type="text"]{
+    line-height: 30%;
+    width: 50%;
+}
+header img{
+    width: 5%;
+}
+.header_nav{
+    display: block;
+    position: absolute;
+    right: 3%;
+    top:30%;
+}
+.header_nav a{
+    text-decoration: none;
+    color:white;
+    font-size: 0.3rem;
+}
+.header_seach{
+    position: absolute;
+    top:3%;
+    left:8%;
+}
+/* headerここまで */
+/* wrapperここから */
+#wrapper{
+    margin-bottom: 20px;
+    position: relative;
+}
+.wrapper_image img{
+    display: block;
+    max-width:90%;
+    margin: 0 auto;
+    position: relative;
+}
+.wrapper_nav a{
+    border-left: 1px solid #F2F3F5;
+    text-decoration: none;
+    font-size: 0.1rem;
+    position: relative;
+    left: 5%;
+    color:#385898;
+    padding:5px 5px;
+}
+.wrapper_nav a:last-child{
+    border-right: 1px solid #F2F3F5;
+}
+.wrapper_nav{
+    background-color: white;
+    max-width: 90%;
+    margin: 0 auto;
+    border: 1px solid #d3d6db;
+}
+/* 丸型のアイコン共通 */
+.users_img img{
+    width: 20%;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+.wrapper_image img{
+    display: block;
+    max-width:90%;
+    margin: 0 auto;
+}
+.wrapper_img{
+    position: absolute;
+    top:60%;
+    left:8%;
+}
+#users p{
+    color:white;
+    font-size: 0.8rem;
+    position: absolute;
+    top:80%;
+    left:28%;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+/* wrapperここまで */
+#basic_info{
+    width: 80%;
+}
+
+/*--画面サイズが768pxから1024pxまではここを読み込む--*/
+@media screen and (min-width:767px)and (max-width:1024px) {
+}
+
+ /*--画面サイズが1024pxからはここを読み込む--*/
+ @media screen and (min-width:1024px) {
+    .wrapper_image img{
+        display: block;
+        max-width:90%;
+        margin: 0 auto;
+    }
+    .wrapper_img{
+        position: absolute;
+        top:50%;
+        left:8%;
+    }
+    
+    #users p{
+        color:white;
+        font-size: 0.8rem;
+        position: absolute;
+        top:80%;
+        left:28%;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+    }
+        
+
+ }

@@ -1,0 +1,165 @@
+
+/* 友達 */
+#friends{
+    border:1px solid #F2F3F5;
+    border-radius: 10%;
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+}
+#friends .friends_link{
+    text-decoration: none;
+}
+#friends .friends_link:hover{
+    text-decoration: underline;
+}
+#friends a img{
+    width: 100%;
+    transform: rotate( 90deg );
+    border:1px solid #F2F3F5;
+    border-radius: 10%;
+}
+#friends .contents{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contents .friend{
+    text-align: center;
+}
+
+.contents a{
+    text-decoration: none;
+}
+.content{
+    width: 30%;
+    padding: 2%;
+}
+
+
+/* 投稿 */
+.photo_icon a{
+    text-decoration: none;
+    color:#385898;
+    font-size: 0.5rem;
+}
+.photo_icon a:active{
+    border:2px solid #385898;
+    opacity: 0.8;
+}
+#form button[type="submit"]{
+    font-size: 0.5rem;
+    color:#385898;
+}
+.filelabel input[type="file"]{
+    width: 60%;
+    font-size: 0.5rem;
+    color:#385898;
+}
+textarea{
+    font-size:0.5rem;
+    resize: horizontal;
+    max-width: 100%;
+}
+#form{
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 20px;
+}
+/* users_iconの配置場所 */
+.form_img img{
+    /* position: absolute;
+    left:15%;
+    top:10%; */
+    width: 15%;
+}
+#form button:active{
+    border:2px solid #385898;
+    opacity: 0.8;
+}
+/* .filesend {
+    display: none;
+} */
+.filelabel{
+color:#385898;
+font-size: 0.5rem;
+}
+.upload{
+    font-size:0.5rem;
+}
+
+/* 投稿ページのアイコン */
+.photo_icon a{
+    display: block flex;
+    text-align: center;
+}
+.post_img{
+    width: 55%;
+}
+.post_info{
+    font-size: 0.5rem;
+}
+#post{
+    width: 80%;
+    border: 1px solid #F2F3F5;
+    background-color: white;
+    margin:20px auto;
+    border-radius: 20px;
+}
+.post_header{
+    height: 15%;
+    position: relative;
+}
+.post_info{
+    position: absolute;
+    left: 15%;
+    top: 0%;
+}
+
+/* .post_info p{
+    display: block;
+    text-decoration: none;
+} */
+/* 適応されない */
+
+/*--画面サイズが768pxから1024pxまではここを読み込む--*/
+@media screen and (min-width:767px)and (max-width:1024px) {
+    /* #friends{
+        width: 65%;
+    } */
+    #form{
+        margin-left: 120px;
+    }
+}
+ /*--画面サイズが1024pxからはここを読み込む--*/
+ @media screen and (min-width:1024px) {
+     body{
+         width: 65%;
+     }
+    #friends{
+        width: 350px;
+        margin: 0 250px;
+    }
+    #form{
+        width: 600px;
+        position: relative;
+        left:240px;
+        top: -280px;
+    }
+    #post{
+        width: 65%;
+        position: relative;
+        bottom: 210px;
+    }
+    #post img{
+        width: 50px;
+        height: 50px;
+    }
+    .post_info{
+        position: relative;
+        left: 50px;
+        bottom: 50px;
+    }
+ }
+
+  
