@@ -12,15 +12,10 @@ require_once("database.php");
 function create($dbh, $user_id, $message,$post_image) {
     $stmt = $dbh->prepare("INSERT INTO posts( user_id, post_message, post_image) VALUES(?,?,?)");
     $data = [];
-    $data[] = $user_id;
+    $data[] = $user_id;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $message;
     $data[] = $post_image;
     $stmt->execute($data);
-    // if ($stmt->execute($data)){
-    //     echo '無事に追加できました。';
-    // }else{
-    //     echo '追加に失敗しました。';
-    // }
 }
  function selectAll($dbh){
     $stmt = $dbh->prepare('SELECT * FROM posts ORDER BY updated_at DESC');
@@ -118,13 +113,17 @@ $result = selectAll($dbh);
                             <?php if ($uploaded): ?>
                             <p class="upload"><?php echo "ファイルのアップロードが完了しました。";?></p>
                             <?php endif ?>
-
+                            <!-- enctype="multipart/form-data" ファイルを送るときはこれをいれる-->
                             <form enctype="multipart/form-data" action="facebook.php" method="POST">
-                                <button type="submit" name="btn_submit"><i class="fas fa-pen"></i>投稿を作成</button>
+        <!-- ユーザーの名前とアイコンを表示したい -->
+                                <!-- <input type="text" name="user_name" placeholder="ユーザーの名前"> -->
 
-                                <input type="hidden" name="name" value="value" />
+                                <input type="hidden" name="name" value="value"/>
+                                <!-- プレビューの為のコード -->
                                 <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
-                                <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea>                            </form>
+                                <!-- 投稿のエリア -->
+                                <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea>     
+                                <button type="submit" name="btn_submit"><i class="fas fa-pen"></i>投稿を作成</button>
                             </form>
                             <!-- プレビュー --><br>
                                 <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:50%;">
@@ -149,17 +148,20 @@ $result = selectAll($dbh);
                     <div class="post_info">
                         <!-- 日時を追加できるようにする -->
                     </div>
-                    <div class="post_receive">
                         <?php foreach( $result as $row):?>
-                            <p><?php echo $row['user_id'];?></p>
-                            <p><?php echo $row['post_message'];?> </p>
+                            <div class="post_receive">
+
+                                <p><?php echo $row['user_id'];?></p>
+                                <p><?php echo $row['created_at'];?></p>
+                                <p><?php echo $row['post_message'];?> </p>
 
                             <!-- post_imageが入っている時実行する -->
-                            <?php if (!empty($row['post_image'])): ?>
-                                <img src="./upload_dir/<?php echo $row['post_image'];?>">
-                            <?php endif ?>
+                                <?php if (!empty($row['post_image'])): ?>
+                                    <img class="upload_img" src="./upload_dir/<?php echo $row['post_image'];?>">
+                                <?php endif ?>
+
+                            </div>
                         <?php endforeach ?>
-                    </div>
                 </div>
             </div>
         </main>

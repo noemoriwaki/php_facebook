@@ -99,31 +99,4 @@ header img{
     width: 80%;
 }
 
-/*--画面サイズが768pxから1024pxまではここを読み込む--*/
-@media screen and (min-width:767px)and (max-width:1024px) {
-}
 
- /*--画面サイズが1024pxからはここを読み込む--*/
- @media screen and (min-width:1024px) {
-    .wrapper_image img{
-        display: block;
-        max-width:90%;
-        margin: 0 auto;
-    }
-    .wrapper_img{
-        position: absolute;
-        top:50%;
-        left:8%;
-    }
-    
-    #users p{
-        color:white;
-        font-size: 0.8rem;
-        position: absolute;
-        top:80%;
-        left:28%;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
-    }
-        
-
- }

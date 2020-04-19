@@ -120,11 +120,9 @@ font-size: 0.5rem;
 
 }
 
-/* .post_info p{
-    display: block;
-    text-decoration: none;
-} */
-/* 適応されない */
+.upload_img{
+    width: 40%;
+}
 
 /*--画面サイズが768pxから1024pxまではここを読み込む--*/
 @media screen and (min-width:767px)and (max-width:1024px) {

@@ -1,6 +1,13 @@
 /*--画面サイズが768pxから1024pxまではここを読み込む--*/
 @media screen and (min-width:767px)and (max-width:1024px) {
+    .users_img img{
+        width: 20%;
+        border-radius: 50%;
+        border: 3px solid white;
+    }
+    
 }
+
 
  /*--画面サイズが1024pxからはここを読み込む--*/
  @media screen and (min-width:1024px) {
@@ -92,15 +99,16 @@
     /* 丸型のアイコン共通 */
     .wrapper_img{
         position: absolute;
-        top:650px;
-        left:300px;
+        top:80%;
+        left:20%;
     }
+    
     #users p{
         color:white;
         font-size: 1.5rem;
         position: absolute;
-        top:710px;
-        left:450px;
+        top:87%;
+        left:30%;
         text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
     }
     
