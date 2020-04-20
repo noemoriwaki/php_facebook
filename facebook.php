@@ -177,8 +177,6 @@ $result = selectAll($dbh);
                                         <span class="aiin-label">いいね!</span>
                                     </div>
                                 </div>
-                            
-                                
                             </div>
                         <?php endforeach ?>
                 </div>
