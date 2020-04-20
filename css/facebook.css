@@ -117,7 +117,7 @@ font-size: 0.5rem;
 .post_receive{
     margin: 20px 0;
     background-color: white;
-
+    border-radius: 10px;
 }
 
 .upload_img{
