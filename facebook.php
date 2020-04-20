@@ -161,25 +161,23 @@ $result = selectAll($dbh);
                                 <?php endif ?>
                             
                             <!-- いいねボタンを実装してみる -->
+                                <div class="aiin-btn">
+                                    <div class="aiin-balbox">
+                                        <span class="aiin-vcnt"></span>
+                                    </div>
+                                    <div class="aiin-triangle">
+                                        <div class="aiin-triangle-1">
+                                            <div class="aiin-triangle-rect-1"></div>
+                                        </div>
+                                        <div class="aiin-triangle-2">
+                                            <div class="aiin-triangle-rect-2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="aiin-handle">
+                                        <span class="aiin-label">いいね!</span>
+                                    </div>
+                                </div>
                             
-                                <!--*****facebook.php-->
-                                <button class="letsVote" data-num="buttonNUM" data-numhtml="countNum1">
-                                <span class="countNum1"><?php echo getVoteCount('buttonNUM'); ?></span>いいね!
-                                <button>
-                            
-                                <!-- clickCount.jsとfunction.phpを読み込ませます -->
-                                <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-                                <script type="text/javascript" src="js/clickCount.js"></script>
-
-                                <!-- include -->
-                                <?
-                                include_once(dirname(__FILE__) . 'fucntion.php');
-                                ?>
-                                <!-- include -->
-
-                                <button class="letsVote" data-num="buttonNUM" data-numhtml="countNum1">
-                                <span class="countNum1"><?php echo getVoteCount('buttonNUM'); ?></span>超いいね！
-                                <button>
                                 
                             </div>
                         <?php endforeach ?>

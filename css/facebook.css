@@ -124,15 +124,105 @@ font-size: 0.5rem;
     width: 40%;
 }
 
-/*--画面サイズが768pxから1024pxまではここを読み込む--*/
-@media screen and (min-width:767px)and (max-width:1024px) {
-    /* #friends{
-        width: 65%;
-    } */
-    #form{
-        margin-left: 120px;
-    }
+
+
+/* btn */
+.aiin-btn {
+	position:relative;
+	display:inline-block;
+	padding:3px;
+	overflow:hidden;
+	cursor:pointer;
+	user-select:none;
+	-moz-user-select:none;
+	-webkit-tap-highlight-color:transparent;
+	line-height:1;
 }
+/* .aiin-btn.aiin-sel {
+} */
+.aiin-btn.aiin-not-allowed {
+	cursor:default;
+}
+/* triangle */
+.aiin-triangle,
+.aiin-triangle-1,
+.aiin-triangle-2 {
+	width:5px;
+	height:5px;
+}
+.aiin-triangle {
+	position:relative;
+	left:-2.5px;
+	margin:0 auto;
+}
+.aiin-triangle-1 {
+	position:relative;
+}
+.aiin-triangle-2 {
+	position:absolute;
+	top:0;
+	left:0;
+}
+.aiin-triangle-rect-1,
+.aiin-triangle-rect-2 {
+	position:relative;
+	width:0;
+	font-size:0;
+	line-height:0;
+	border-width:5px 5px;
+	border-style:solid;
+}
+.aiin-triangle-rect-1 {
+	top:0px;
+	border-color:#aaa transparent transparent transparent;
+}
+.aiin-triangle-rect-2 {
+	top:-1px;
+	border-color:#fff transparent transparent transparent;
+}
+/* balbox */
+.aiin-balbox {
+	padding:1px 8px;
+	font-size:16px;
+	line-height:1;
+	border:1px solid #aaa;
+	background-color:#fff;
+	border-radius:3px;
+	text-align:center;
+	vertical-align:middle;
+	box-shadow:inset 1px 1px 1px 0 #ddd;
+}
+/* vcnt & label */
+.aiin-vcnt,
+.aiin-label {
+	position:relative;
+	vertical-align:baseline;
+}
+/* vcnt */
+.aiin-vcnt {
+	color:#000;
+	font-size:13px;
+	line-height:12px;
+}
+/* handle */
+.aiin-handle {
+	position:relative;
+	padding:2px 8px;
+	background-color:#4267b2;
+	border-radius:3px;
+	text-align:center;
+	vertical-align:middle;
+}
+/* label */
+.aiin-label {
+	font-size:12px;
+	line-height:11px;
+	color:#fff;
+}
+.aiin-btn.aiin-sel .aiin-label {
+	color:#ff0;
+}
+
  /*--画面サイズが1024pxからはここを読み込む--*/
  @media screen and (min-width:1024px) {
      body{
@@ -164,4 +254,12 @@ font-size: 0.5rem;
     }
  }
 
-  
+  /*--画面サイズが768pxから1024pxまではここを読み込む--*/
+@media screen and (min-width:767px)and (max-width:1024px) {
+    /* #friends{
+        width: 65%;
+    } */
+    #form{
+        margin-left: 120px;
+    }
+}
