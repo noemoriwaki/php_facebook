@@ -197,6 +197,7 @@ $result = selectAll($dbh);
                                 </form>
                             </div>
                         <?php endforeach ?>
+                        <p><?php echo "ご飯";?></p>
             </div>
         </main>
     </body>
