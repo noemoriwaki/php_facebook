@@ -35,6 +35,24 @@ $result = selectAll($dbh);
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+        <meta name="description" content="PHPによるfacebookのクローンの作成練習のために作られたサイトです。">
+    <!-- OGPを設定する   -->
+        <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#">
+ 
+        <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#">
+            <!-- ページのURL -->
+        <meta property="og:url" content=" ページの URL" />
+            <!-- ページの種類 -->
+        <meta property="og:type" content="facebook" />
+            <!-- ページのタイトル -->
+        <meta property="og:title" content="facebookのクローン" />
+            <!-- ページのディスクリプション -->
+        <meta property="og:description" content="PHPによるfacebookのクローンの作成練習のために作られたサイトです。" />
+            <!-- ページのサイト名 -->
+        <meta property="og:site_name" content="Facebook" />
+            <!-- サムネイル画像のURL -->
+        <meta property="og:image" content=" サムネイル画像の URL" />    
+    <!-- OGPここまで -->
         <link rel="stylesheet" href="css/facebook.css">
         <link rel="stylesheet" href="css/header_footer.css">
         <link rel="stylesheet" href="css/responsive.css">
@@ -107,13 +125,13 @@ $result = selectAll($dbh);
                             </div>
                         </div>
             </div>
-                <!-- ここから投稿ページ -->
+            <!-- ここから投稿ページ -->
                 <div id="form">
                         <!-- 投稿を入力と送信 -->
                             <?php if ($uploaded): ?>
                             <p class="upload"><?php echo "ファイルのアップロードが完了しました。";?></p>
                             <?php endif ?>
-                            <!-- enctype="multipart/form-data" ファイルを送るときはこれをいれる-->
+                            <!-- ※enctype="multipart/form-data" ファイルを送るときはこれをいれる-->
                             <form enctype="multipart/form-data" action="facebook.php" method="POST">
         <!-- ユーザーの名前とアイコンを表示したい -->
                                 <!-- <input type="text" name="user_name" placeholder="ユーザーの名前"> -->
