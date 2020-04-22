@@ -37,7 +37,7 @@ $result = selectAll($dbh);
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
         <link rel="stylesheet" href="css/facebook.css">
         <link rel="stylesheet" href="css/header_footer.css">
-        <link rel="stylesheet" href="css/responsive_header.css">
+        <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
          <title>facebook</title>
     </head>
@@ -138,17 +138,13 @@ $result = selectAll($dbh);
                                         }
                                     </script>    
                 
-                </div>
+            </div>
                 <!-- ここから投稿表示 -->
             <div id="post">
-                <div class="post_header">
-                    <div class="users_img post_img">
-                        <img src="facebook_image/icon.01.jpeg" alt="users画像">
-                    </div>
-                    <div class="post_info">
-                        <!-- 日時を追加できるようにする -->
-                    </div>
                         <?php foreach( $result as $row):?>
+                            <div class="users_img post_img">
+                                <img src="facebook_image/icon.01.jpeg" alt="users画像">
+                            </div>
                             <div class="post_receive">
 
                                 <p><?php echo $row['user_id'];?></p>
@@ -158,7 +154,7 @@ $result = selectAll($dbh);
                             <!-- post_imageが入っている時実行する -->
                                 <?php if (!empty($row['post_image'])): ?>
                                     <img class="upload_img" src="./upload_dir/<?php echo $row['post_image'];?>">
-                                <?php endif ?>
+                                <?php endif ?><br>
                             
                             <!-- いいねボタンを実装してみる -->
                                 <div class="aiin-btn">
@@ -177,9 +173,12 @@ $result = selectAll($dbh);
                                         <span class="aiin-label">いいね!</span>
                                     </div>
                                 </div>
+                                <form action="facebook.php" method="POST">
+                                    <input type="text" name = "friend_name" placeholder ="お名前を入力"></label><br>
+                                    <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="50" rows=3></textarea>
+                                </form>
                             </div>
                         <?php endforeach ?>
-                </div>
             </div>
         </main>
     </body>

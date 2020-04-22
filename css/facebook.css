@@ -213,9 +213,9 @@ font-size: 0.5rem;
 	text-align:center;
 	vertical-align:middle;
 }
-.aiin-handle:action{
+/* .aiin-handle:action{
 
-}
+} */
 /* label */
 .aiin-label {
 	font-size:12px;
@@ -225,35 +225,4 @@ font-size: 0.5rem;
 .aiin-btn.aiin-sel .aiin-label {
 	color:#ff0;
 }
-
- /*--画面サイズが1024pxからはここを読み込む--*/
- @media screen and (min-width:1024px) {
-     body{
-         width: 65%;
-     }
-    #friends{
-        width: 350px;
-        margin: 0 250px;
-    }
-    #form{
-        width: 600px;
-        position: relative;
-        left:240px;
-        top: -280px;
-    }
-    #post{
-        width: 65%;
-        position: relative;
-        bottom: 210px;
-    }
-    #post img{
-        width: 50px;
-        height: 50px;
-    }
-    .post_info{
-        position: relative;
-        left: 50px;
-        bottom: 50px;
-    }
- }
 
