@@ -174,7 +174,7 @@ $result = selectAll($dbh);
                                     <img class="upload_img" src="./upload_dir/<?php echo $row['post_image'];?>">
                                 <?php endif ?><br>
                             
-                            <!-- いいねボタンを実装してみる -->
+                            <!-- いいねボタンを実装実装する -->
                                 <div class="aiin-btn">
                                     <div class="aiin-balbox">
                                         <span class="aiin-vcnt"></span>
