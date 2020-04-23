@@ -191,10 +191,18 @@ $result = selectAll($dbh);
                                         <span class="aiin-label">いいね!</span>
                                     </div>
                                 </div>
-                                <form action="facebook.php" method="POST">
+                                <form action="facebook.php" method="GET">
                                     <input type="text" name = "friend_name" placeholder ="お名前を入力"></label><br>
                                     <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="50" rows=3></textarea>
+                                    <input type="submit" name="friend_submit" id="friend_submit">
                                 </form>
+                            </div>
+                            <div class="friend_post">
+                                <?php if(!isset($_GET)):?>
+                                    <p><?php echo $GET["friend_name"];?></p>
+                                    <p><?php echo $GET["friend_text"];?></p>
+                                <?php endif ?>
+
                             </div>
                         <?php endforeach ?>
             </div>
