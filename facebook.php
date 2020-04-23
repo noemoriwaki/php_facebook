@@ -161,7 +161,7 @@ $result = selectAll($dbh);
             <div id="post">
                         <?php foreach( $result as $row):?>
                             <div class="users_img post_img">
-                                <img src="facebook_image/icon.01.jpeg" alt="users画像">
+                                <img class="users_img post_img" src="facebook_image/icon.01.jpeg" alt="users画像">
                             </div>
                             <div class="post_receive">
 
@@ -171,6 +171,7 @@ $result = selectAll($dbh);
 
                             <!-- post_imageが入っている時実行する -->
                                 <?php if (!empty($row['post_image'])): ?>
+                            <!-- アップロードされた画像の表示 -->
                                     <img class="upload_img" src="./upload_dir/<?php echo $row['post_image'];?>">
                                 <?php endif ?><br>
                             
@@ -192,14 +193,14 @@ $result = selectAll($dbh);
                                     </div>
                                 </div>
                                 <form action="facebook.php" method="GET">
-                                    <input type="text" name = "friend_name" placeholder ="お名前を入力"></label><br>
+                                    <input type="text" name = "friend_name" placeholder ="お名前"></label><br>
                                     <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="50" rows=3></textarea>
-                                    <input type="submit" name="friend_submit" id="friend_submit">
+                                    <input type="submit" name="friend_submit" id="friend_submit" value="投稿">
                                 </form>
                             </div>
                             <div class="friend_post">
                                 <?php if(!isset($_GET)):?>
-                                    <p><?php echo $GET["friend_name"];?></p>
+                                    <p><?php echo $_GET["friend_name"];?></p>
                                     <p><?php echo $GET["friend_text"];?></p>
                                 <?php endif ?>
 

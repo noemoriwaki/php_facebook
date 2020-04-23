@@ -88,12 +88,13 @@ font-size: 0.5rem;
     font-size:0.5rem;
 }
 
-/* 投稿ページのアイコン */
+/* #post 投稿ページのアイコン */
 .photo_icon a{
     display: block flex;
     text-align: center;
 }
 .post_img{
+    display: block;
     width: 55%;
 }
 .post_info{
@@ -120,10 +121,10 @@ font-size: 0.5rem;
     border-radius: 10px;
 }
 
-.upload_img{
-    width: 40%;
-}
+/* .user_id{
 
+}
+ */
 
 
 /* btn */
@@ -136,7 +137,8 @@ font-size: 0.5rem;
 	user-select:none;
 	-moz-user-select:none;
 	-webkit-tap-highlight-color:transparent;
-	line-height:1;
+    line-height:1;
+    
 }
 /* .aiin-btn.aiin-sel {
 } */
@@ -173,7 +175,6 @@ font-size: 0.5rem;
 	border-style:solid;
 }
 .aiin-triangle-rect-1 {
-	top:0px;
 	border-color:#aaa transparent transparent transparent;
 }
 .aiin-triangle-rect-2 {
@@ -225,4 +226,27 @@ font-size: 0.5rem;
 .aiin-btn.aiin-sel .aiin-label {
 	color:#ff0;
 }
-
+#post input[type="submit"]{
+    position: relative;
+    background: #4267b2;
+    color: white;
+}
+#post textarea{
+    border: 1px solid  #F2F3F5;
+}
+#post input[type="text"]{
+    border: 1px solid  #F2F3F5;
+}
+.post_img img{
+    float: left;
+}
+#post p{
+    font-size: 8px;
+}
+/* アップロードされた画像の表示 */
+.upload_img{
+    width: 40%;
+}
+.upload_img:last-child{
+    clear: both;
+}
