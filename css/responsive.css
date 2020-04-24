@@ -1,10 +1,23 @@
 /*--画面サイズが768pxから1024pxまではここを読み込む--*/
-@media screen and (min-width:767px)and (max-width:1024px) {
+@media screen and (min-width:767px)and (max-width:980px) {
     .users_img img{
-        width: 20%;
         border-radius: 50%;
         border: 3px solid white;
     }
+    .wrapper_nav a{
+    position: relative;
+    left: 5%;
+    color:#385898;
+    padding:5px 5px;
+    }
+    #form{
+        margin: 0 20%;
+        width: 80%;
+        padding-top: 20px;
+    }
+
+
+    
     
 }
 
@@ -113,20 +126,21 @@
        width: 350px;
        margin: 0 250px;
    }
+   /* ここからフォーム */
     #form{
         width: 600px;
         position: relative;
-        left:240px;
-        top: -280px;
+        left:26%;
+        top: -250px;
+        margin: 0 20%;
+        width: 80%;
+        padding-top: 20px;
+
     }
     #post{
         width: 65%;
         position: relative;
         bottom: 210px;
-    }
-    #post img{
-        width: 100px;
-        height: 100px;
     }
     .post_info{
         position: relative;
@@ -135,46 +149,8 @@
     }
     #post input[type="submit"]{
         position: relative;
-        right: 170px;
-    
-
-    
-    
-    
-
-
- }
-
- /*--画面サイズが1024pxからはここを読み込む--*/
- /* @media screen and (min-width:1024px) {
-    body{
-        width: 65%;
+        right: 45px;
+        bottom: 50px;
     }
-   #friends{
-       width: 350px;
-       margin: 0 250px;
-   }
-   #form{
-       width: 600px;
-       position: relative;
-       left:240px;
-       top: -280px;
-   }
-   #post{
-       width: 65%;
-       position: relative;
-       bottom: 210px;
-   }
-   #post img{
-       width: 50px;
-       height: 50px;
-   }
-   .post_info{
-       position: relative;
-       left: 50px;
-       bottom: 50px;
-   }
-}
-
- */
+    
  }

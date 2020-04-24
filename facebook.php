@@ -140,7 +140,7 @@ $result = selectAll($dbh);
                                 <!-- プレビューの為のコード -->
                                 <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
                                 <!-- 投稿のエリア -->
-                                <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea>     
+                                <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea><br>
                                 <button type="submit" name="btn_submit"><i class="fas fa-pen"></i>投稿を作成</button>
                             </form>
                             <!-- プレビュー --><br>
@@ -166,6 +166,8 @@ $result = selectAll($dbh);
                             <div class="post_receive">
 
                                 <p><?php echo $row['user_id'];?></p>
+                                <!-- user_nameを表示する -->
+                                <p>Noe Moriwaki</p>
                                 <p><?php echo $row['created_at'];?></p>
                                 <p><?php echo $row['post_message'];?> </p>
 
@@ -175,7 +177,7 @@ $result = selectAll($dbh);
                                     <img class="upload_img" src="./upload_dir/<?php echo $row['post_image'];?>">
                                 <?php endif ?><br>
                             
-                            <!-- いいねボタンを実装実装する -->
+                            <!-- いいねボタンを実装 -->
                                 <div class="aiin-btn">
                                     <div class="aiin-balbox">
                                         <span class="aiin-vcnt"></span>
@@ -192,18 +194,19 @@ $result = selectAll($dbh);
                                         <span class="aiin-label">いいね!</span>
                                     </div>
                                 </div>
-                                <form action="facebook.php" method="GET">
+                                <!-- 友達の投稿form -->
+                                <form action="facebook.php" method="get">
                                     <input type="text" name = "friend_name" placeholder ="お名前"></label><br>
                                     <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="50" rows=3></textarea>
                                     <input type="submit" name="friend_submit" id="friend_submit" value="投稿">
                                 </form>
                             </div>
+                            <!-- 友達の投稿表示 -->
                             <div class="friend_post">
-                                <?php if(!isset($_GET)):?>
-                                    <p><?php echo $_GET["friend_name"];?></p>
-                                    <p><?php echo $GET["friend_text"];?></p>
+                                <?php if(isset($_GET['friend_name'])):?>
+                                    <p class="friend_comment">投稿者：<?php echo $_GET['friend_name'];?></p>
+                                    <p class="friend_comment">コメント：<?php echo $_GET['friend_text'];?></p>
                                 <?php endif ?>
-
                             </div>
                         <?php endforeach ?>
             </div>

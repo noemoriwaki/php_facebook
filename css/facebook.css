@@ -77,9 +77,6 @@ textarea{
     border:2px solid #385898;
     opacity: 0.8;
 }
-/* .filesend {
-    display: none;
-} */
 .filelabel{
 color:#385898;
 font-size: 0.5rem;
@@ -100,11 +97,13 @@ font-size: 0.5rem;
 .post_info{
     font-size: 0.5rem;
 }
+/* post全体へのcss */
 #post{
     width: 80%;
     border: 1px solid #F2F3F5;
-    margin:20px auto;
+    margin:0 auto;
     border-radius: 20px;
+
 }
 .post_header{
     height: 15%;
@@ -116,15 +115,48 @@ font-size: 0.5rem;
     top: 0%;
 }
 .post_receive{
-    margin: 20px 0;
+    margin: 20px 0 0;
     background-color: white;
     border-radius: 10px;
 }
-
-/* .user_id{
-
+#post input[type="submit"]{
+    position: relative;
+    background: #4267b2;
+    color: white;
 }
- */
+#post textarea{
+    border: 1px solid  #F2F3F5;
+}
+#post input[type="text"]{
+    border: 1px solid  #F2F3F5;
+}
+.post_img img{
+    float: left;
+}
+#post p{
+    font-size: 8px;
+}
+/* アップロードされた画像の表示 */
+.upload_img{
+    width: 100%;
+}
+.upload_img:last-child{
+    clear: both;
+}
+/* 友達の投稿表示 */
+.friend_post{
+    background: white;
+    border-radius: 10px;
+}
+.friend_commnet{
+    background: #F2F3F5;
+    padding: 10px;
+    display: block;
+    max-width: 50%;
+}
+
+
+
 
 
 /* btn */
@@ -225,28 +257,4 @@ font-size: 0.5rem;
 }
 .aiin-btn.aiin-sel .aiin-label {
 	color:#ff0;
-}
-#post input[type="submit"]{
-    position: relative;
-    background: #4267b2;
-    color: white;
-}
-#post textarea{
-    border: 1px solid  #F2F3F5;
-}
-#post input[type="text"]{
-    border: 1px solid  #F2F3F5;
-}
-.post_img img{
-    float: left;
-}
-#post p{
-    font-size: 8px;
-}
-/* アップロードされた画像の表示 */
-.upload_img{
-    width: 40%;
-}
-.upload_img:last-child{
-    clear: both;
 }
