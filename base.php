@@ -2,12 +2,12 @@
 // データベースの読み込み
 
 require_once("database.php");
-function create($dbh, $user_name, $user_icon, $user_header_image, $employer, $alma_mater, $home_address, $birth_place) {
-    $stmt = $dbh->prepare("INSERT INTO users( user_name, user_icon, user_header_image, employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?,?,?,?)");
+function create($dbh, $user_name, $employer, $alma_mater, $home_address, $birth_place) {
+    $stmt = $dbh->prepare("INSERT INTO users( user_name, employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?,?)");
     $data = [];
     $data[] = $user_name;//入力する順番が大事。上のcreateと同じ順番で入力する
-    $data[] = $user_icon;
-    $data[] = $user_header_image;
+    // $data[] = $user_icon;
+    // $data[] = $user_header_image;
     $data[] = $employer;
     $data[] = $alma_mater;
     $data[] = $home_address;
@@ -20,9 +20,11 @@ function create($dbh, $user_name, $user_icon, $user_header_image, $employer, $al
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
 // $_POSTが入っている時にcreateを実行する
-//  if (!empty($_POST)) {
-//      create($dbh, "1", $_POST["message"], basename($_FILES['uploaded_file']['name']));
+// if (!empty($_POST)) {
+//     create($dbh, $_POST["user_name"], $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birth_place"];
 // }
+
+
 // 全ての投稿データを$resultに入れている
 $result = selectAll($dbh);
 
@@ -85,23 +87,27 @@ $result = selectAll($dbh);
         </div>
         <div id="basic_info">
             <a href="users.php"><h1>基本データの編集する</h1></a>
+
                 <table class="table">
+                <?php foreach( $result as $row):?>
+
                     <tr>
                         <th>勤務先</th>
-                        <td>株式会社サイゼリヤ</td>
+                        <td><p><?php echo $row['employer'];?></p></td>
                     </tr>
                     <tr>
                         <th>出身校</th>
-                        <td>神戸学院大学</td>
+                        <td><p><?php echo $row['alma_mater'];?></p></td>
                     </tr>
                     <tr>
                         <th>居住地</th>
-                        <td>愛知県</td>
+                        <td><p><?php echo $row['home_address'];?></p></td>
                     </tr>
                     <tr>
                         <th>出身地</th>
-                        <td>兵庫県</td>
+                        <td><p><?php echo $row['birth_place'];?></p></td>
                     </tr>
+                    <?php endforeach ?>
                 </table>
         </div>
     </body>   
