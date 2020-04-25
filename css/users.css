@@ -1,0 +1,12 @@
+@import "reset.css";
+body{
+    width:100%;
+    height:auto;
+    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+    font-size: 16px;
+    background-color: #F2F3F5;
+    text-decoration: none;
+  }
+table th,td{
+    border: 1px solid #333;
+}
