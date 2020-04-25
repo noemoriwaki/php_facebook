@@ -9,6 +9,8 @@
 }
 #friends .friends_link{
     text-decoration: none;
+    color: #385898;
+    padding-left: 20px;
 }
 #friends .friends_link:hover{
     text-decoration: underline;
@@ -50,13 +52,14 @@
 #form button[type="submit"]{
     font-size: 0.5rem;
     color:#385898;
+    background: white;
 }
 .filelabel input[type="file"]{
     width: 60%;
     font-size: 0.5rem;
     color:#385898;
 }
-textarea{
+#form textarea{
     font-size:0.5rem;
     resize: horizontal;
     max-width: 100%;
@@ -148,11 +151,13 @@ font-size: 0.5rem;
     background: white;
     border-radius: 10px;
 }
-.friend_commnet{
+#post .friend_post .friend_commnet{
     background: #F2F3F5;
     padding: 10px;
     display: block;
     max-width: 50%;
+    line-height: 16px;
+    font-size: 16px;
 }
 
 

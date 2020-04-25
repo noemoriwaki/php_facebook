@@ -102,7 +102,7 @@ $result = selectAll($dbh);
         </div>
         <main>
             <div id="friends">
-            <a  class="friends_link" href="#"><p>友達</p></a><br>
+            <a  class="friends_link" href="#">友達</a><br>
                 <!-- 友達について -->
                     <div class="contents">
                             <div class="content">

@@ -1,3 +1,35 @@
+<?php
+// データベースの読み込み
+
+require_once("database.php");
+function create($dbh, $user_name, $user_icon, $user_header_image, $employer, $alma_mater, $home_address, $birth_place) {
+    $stmt = $dbh->prepare("INSERT INTO users( user_name, user_icon, user_header_image, employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?,?,?,?)");
+    $data = [];
+    $data[] = $user_name;//入力する順番が大事。上のcreateと同じ順番で入力する
+    $data[] = $user_icon;
+    $data[] = $user_header_image;
+    $data[] = $employer;
+    $data[] = $alma_mater;
+    $data[] = $home_address;
+    $data[] = $birth_place;
+    $stmt->execute($data);
+}
+ function selectAll($dbh){
+    $stmt = $dbh->prepare('SELECT * FROM users ORDER BY updated_at DESC');
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+ }
+// $_POSTが入っている時にcreateを実行する
+//  if (!empty($_POST)) {
+//      create($dbh, "1", $_POST["message"], basename($_FILES['uploaded_file']['name']));
+// }
+// 全ての投稿データを$resultに入れている
+$result = selectAll($dbh);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -34,6 +66,7 @@
                 <img src="facebook_image/IMG_0009.jpeg" alt="兄弟の写真">
             </div>
             <div id="users">
+                <!-- user_nameを出力 -->
                 <a href="#"><p>Noe Moriwaki</p></a>
                     <div class="users_img wrapper_img">
                         <img src="facebook_image/icon.01.jpeg" alt="icon画像">
@@ -51,27 +84,7 @@
             </div>
         </div>
         <div id="basic_info">
-            <h1>基本データ</h1>
-                <!-- 勤務先
-                <div id="employer">
-                    <p class="employer">勤務先</p>
-                    <p><a href="#">株式会社　サイゼリヤ</a></p>
-                </div>
-                出身校
-                <div id="alma_mater">
-                    <p class="alma_mater">出身校</p>
-                    <p><a href="#">神戸学院大学</a></p>
-                </div>
-                住んでいる場所
-                <div id="home_address">
-                    <p class="home_address">居住地</p>
-                    <p><a href="#">愛知県</a></p>
-                </div>
-                出身地
-                <div id="birthplace">
-                    <p class="birthplace">出身地</p>
-                    <p><a href="#">兵庫県</a></p>
-                </div> -->
+            <a href="users.php"><h1>基本データの編集する</h1></a>
                 <table class="table">
                     <tr>
                         <th>勤務先</th>
@@ -89,7 +102,6 @@
                         <th>出身地</th>
                         <td>兵庫県</td>
                     </tr>
-                    <tr>
                 </table>
         </div>
     </body>   

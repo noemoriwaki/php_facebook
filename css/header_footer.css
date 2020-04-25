@@ -72,7 +72,7 @@ header img{
 }
 /* 丸型のアイコン共通 */
 .users_img img{
-    width: 10%;
+    width: 20%;
     border-radius: 50%;
     border: 3px solid white;
 }
