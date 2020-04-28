@@ -1,9 +1,11 @@
+<!-- マイページの内容 -->
+
 <?php
 // データベースの読み込み
 
 require_once("database.php");
 function create($dbh, $user_name, $employer, $alma_mater, $home_address, $birth_place) {
-    $stmt = $dbh->prepare("INSERT INTO users( user_name, employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?,?)");
+    $stmt = $dbh->prepare("INSERT INTO users( user_name,employer, alma_mater, home_address, birthplace ) VALUES(?,?,?,?,?)");
     $data = [];
     $data[] = $user_name;//入力する順番が大事。上のcreateと同じ順番で入力する
     // $data[] = $user_icon;
@@ -11,7 +13,7 @@ function create($dbh, $user_name, $employer, $alma_mater, $home_address, $birth_
     $data[] = $employer;
     $data[] = $alma_mater;
     $data[] = $home_address;
-    $data[] = $birth_place;
+    $data[] = $birthplace;
     $stmt->execute($data);
 }
  function selectAll($dbh){
@@ -20,9 +22,9 @@ function create($dbh, $user_name, $employer, $alma_mater, $home_address, $birth_
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
 // $_POSTが入っている時にcreateを実行する
-// if (!empty($_POST)) {
-//     create($dbh, $_POST["user_name"], $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birth_place"];
-// }
+if (!empty($_POST)) {
+    create($dbh, $_POST["user_name"],  $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birthplace"]);
+}
 
 
 // 全ての投稿データを$resultに入れている
@@ -93,19 +95,19 @@ $result = selectAll($dbh);
 
                     <tr>
                         <th>勤務先</th>
-                        <td><p><?php echo $row['employer'];?></p></td>
+                        <td><?php echo $row['employer'];?></td>
                     </tr>
                     <tr>
                         <th>出身校</th>
-                        <td><p><?php echo $row['alma_mater'];?></p></td>
+                        <td><?php echo $row['alma_mater'];?></td>
                     </tr>
                     <tr>
                         <th>居住地</th>
-                        <td><p><?php echo $row['home_address'];?></p></td>
+                        <td><?php echo $row['home_address'];?></td>
                     </tr>
                     <tr>
                         <th>出身地</th>
-                        <td><p><?php echo $row['birth_place'];?></p></td>
+                        <td><?php echo $row['birth_place'];?></td>
                     </tr>
                     <?php endforeach ?>
                 </table>

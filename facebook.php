@@ -74,7 +74,7 @@ $result = selectAll($dbh);
                     <a href="#">ホーム</a>
                     <a href="friends.php">友達</a>
                     <a href="#">お知らせ</a>
-                    <a href="#">ログイン</a>
+                    <a href="login.php">ログイン</a>
                 </nav>
             </div>
         </header>
@@ -203,9 +203,9 @@ $result = selectAll($dbh);
                             </div>
                             <!-- 友達の投稿表示 -->
                             <div class="friend_post">
-                                <?php if(isset($_GET['friend_name'])):?>
-                                    <p class="friend_comment">投稿者：<?php echo $_GET['friend_name'];?></p>
-                                    <p class="friend_comment">コメント：<?php echo $_GET['friend_text'];?></p>
+                                <?php if(isset($_POST['friend_name'])):?>
+                                    <p class="friend_comment">投稿者：<?php echo $_POST['friend_name'];?></p>
+                                    <p class="friend_comment">コメント：<?php echo $_POST['friend_text'];?></p>
                                 <?php endif ?>
                             </div>
                         <?php endforeach ?>
