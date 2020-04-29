@@ -24,7 +24,7 @@
                     <a href="#">ホーム</a>
                     <a href="#">友達</a>
                     <a href="#">お知らせ</a>
-                    <a href="#">ログイン</a>
+                    <a href="login.php">ログイン</a>
                 </nav>
             </div>
         </header>

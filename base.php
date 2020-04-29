@@ -1,5 +1,6 @@
 <!-- マイページの内容 -->
 
+
 <?php
 // データベースの読み込み
 
@@ -41,7 +42,7 @@ $result = selectAll($dbh);
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
         <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="css/header_footer.css">
-        <link rel="stylesheet" href="css/responsive_header.css">
+        <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
          <title>基本ページ</title>
     </head>
@@ -60,7 +61,7 @@ $result = selectAll($dbh);
                     <a href="#">ホーム</a>
                     <a href="#">友達</a>
                     <a href="#">お知らせ</a>
-                    <a href="#">ログイン</a>
+                    <a href="login.php">ログイン</a>
                 </nav>
             </div>
         </header>

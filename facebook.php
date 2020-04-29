@@ -1,3 +1,38 @@
+<!-- ここからログインの為のコード -->
+
+<?php
+// 新しいセッションを開始 ログインを開始
+// session_start();
+
+// データーベースの読み込み
+// require_once("database.php");
+
+// データベースに登録
+// function userCreate($dbh, $userName, $email, $password) {
+//     $stmt = $dbh->prepare("INSERT INTO users(user_name, email, password) VALUES(?,?,?)");
+//     $data = [];
+//     $data[] = $userName;
+//     $data[] = $email;
+//     // パスワードを暗号化する
+//     $data[] = password_hash($password, PASSWORD_DEFAULT);
+//     $stmt->execute($data);
+// }
+
+// POSTに値が入っている時送信する
+// if (!empty($_POST)) {
+//     userCreate($dbh, $_POST["user_name"], $_POST["email"], $_POST["password"],);
+// }
+// ログインしているときにログインしていることを表示する
+// if ($_SESSION["login"]) {
+//     echo "ログインしています。";
+// } else {
+//     echo "ログインしていません。";
+// }
+?>
+
+<!-- ここまで -->
+
+
 <?php
 $uploaded = false;
 if (!empty($_FILES['uploaded_file'])) { 

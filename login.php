@@ -1,9 +1,11 @@
 <?php
+// セッションを開始
+session_start();
 // データーベースの読み込み
-require_once("databace.php");
+require_once("database.php");
 
 // データーベースの読み込み
-function findUserByEmail($dbh, $user_name, $email, $password){
+function findUserByEmail($dbh,  $email){
 $sql = "SELECT * FROM users WHERE email = ? ";
     $stmt = $dbh->prepare($sql);
     $data[] = $email;
@@ -21,7 +23,7 @@ if (!empty($_POST)) {
         // どのページでもログイン状態にする
         $_SESSION["user"] = $user;
         // ログインするとマイページへ飛ぶ
-        header('Location: base.php');
+        header('Location: facebook.php');
         exit;
     } else {
         echo 'Invalid password.';
@@ -35,12 +37,7 @@ if ($_SESSION["login"]) {
     echo "ログインしていません。";
   }
 
-
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -51,12 +48,12 @@ if ($_SESSION["login"]) {
 </head>
 <body>
     <h1>ログインページ</h1>
-        <form action="./login.php" method="POST">
-            <label>ユーザー名：<input type="text" name="user_name" placeholder ="お名前"></label><br>
-            <label>メールアドレス<input type="Email" name="email" placeholder="メールアドレス"></label><br>
-            <label>パスワード：<input type="password" name="password" id="" placeholder ="パスワード"></label><br>
-            <button type="submit">登録</button>
-        </form>
+        <form action="./login.php" methot="POST">
+        <label>メールアドレス：<input type="Email" name="email"></label><br>
+        <label>パスワード：<input type="password" name="password"></label><br>
+        <button type="submit" name="submit">ログイン</button>
+    </form>
+    <a href="registration.php">新規登録の方はこちらへ</a>
 
     
 </body>
