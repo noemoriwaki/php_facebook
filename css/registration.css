@@ -1,0 +1,16 @@
+@import "reset.css";
+
+button{
+    background: #4267b2;
+    color: white;
+}
+form{
+    display: block;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+table th, td{
+    border: 1px solid #333;
+}
