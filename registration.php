@@ -19,7 +19,7 @@ function create($dbh, $userName, $email, $password) {
 
 // POSTに値が入っている時送信する
 if (!empty($_POST)) {
-    create($dbh, "1", $_POST["user_name"], $_POST["email"], $_POST["password"],);
+    create($dbh, $_POST["user_name"], $_POST["email"], $_POST["password"],);
 }
 // ログインしているときにログインしていることを表示する
 if ($_SESSION["login"]) {
@@ -52,7 +52,7 @@ if ($_SESSION["login"]) {
                 </tr>
                 <tr>
                     <th>メールアドレス</th>
-                    <td><input type="Email" name="email" placeholder="メールアドレス"></td>
+                    <td><input type="email" name="email" placeholder="メールアドレス"></td>
                 </tr>
                 <tr>
                     <th>パスワード</th>
