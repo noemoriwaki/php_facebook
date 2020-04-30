@@ -1,3 +1,4 @@
+<!-- ログインページ -->
 <?php
 // セッションを開始
 session_start();
@@ -6,7 +7,7 @@ require_once("database.php");
 
 // データーベースの読み込み
 function findUserByEmail($dbh,  $email){
-$sql = "SELECT * FROM users WHERE email = ? ";
+$sql = "SELECT * FROM userData WHERE email = ? ";
     $stmt = $dbh->prepare($sql);
     $data[] = $email;
     $stmt->execute($data);

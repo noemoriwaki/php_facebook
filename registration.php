@@ -1,3 +1,4 @@
+<!-- 登録ページ -->
 <?php
 // 新しいセッションを開始 ログインを開始
 session_start();
@@ -5,8 +6,8 @@ session_start();
 require_once("database.php");
 
 // データベースに登録
-function userCreate($dbh, $userName, $email, $password) {
-    $stmt = $dbh->prepare("INSERT INTO users(user_name, email, password) VALUES(?,?,?)");
+function create($dbh, $userName, $email, $password) {
+    $stmt = $dbh->prepare("INSERT INTO userData(user_name, email, password) VALUES(?,?,?)");
     $data = [];
     $data[] = $userName;
     $data[] = $email;
@@ -15,9 +16,10 @@ function userCreate($dbh, $userName, $email, $password) {
     $stmt->execute($data);
 }
 
+
 // POSTに値が入っている時送信する
 if (!empty($_POST)) {
-    userCreate($dbh, $_POST["user_name"], $_POST["email"], $_POST["password"],);
+    create($dbh, $_POST["user_name"], $_POST["email"], $_POST["password"],);
 }
 // ログインしているときにログインしていることを表示する
 if ($_SESSION["login"]) {

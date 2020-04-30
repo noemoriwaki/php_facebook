@@ -1,37 +1,13 @@
 <!-- ここからログインの為のコード -->
-
 <?php
-// 新しいセッションを開始 ログインを開始
-// session_start();
-
-// データーベースの読み込み
-// require_once("database.php");
-
-// データベースに登録
-// function userCreate($dbh, $userName, $email, $password) {
-//     $stmt = $dbh->prepare("INSERT INTO users(user_name, email, password) VALUES(?,?,?)");
-//     $data = [];
-//     $data[] = $userName;
-//     $data[] = $email;
-//     // パスワードを暗号化する
-//     $data[] = password_hash($password, PASSWORD_DEFAULT);
-//     $stmt->execute($data);
-// }
-
-// POSTに値が入っている時送信する
-// if (!empty($_POST)) {
-//     userCreate($dbh, $_POST["user_name"], $_POST["email"], $_POST["password"],);
-// }
-// ログインしているときにログインしていることを表示する
-// if ($_SESSION["login"]) {
-//     echo "ログインしています。";
-// } else {
-//     echo "ログインしていません。";
-// }
+// ログインしていない場合はログイン画面へ飛ぶ
+session_start();
+if (!$_SETTION["login"]) {
+    header('Location: login.php');
+    exit;
+}
+$user = $_SETTION['user'];
 ?>
-
-<!-- ここまで -->
-
 
 <?php
 $uploaded = false;
@@ -41,9 +17,12 @@ if (!empty($_FILES['uploaded_file'])) {
   move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
 }
-
+// アップしたファイルの読み込み
 $images = glob('./upload_dir/*');
+// データベースの読み込み
 require_once("database.php");
+
+// データベースに登録
 function create($dbh, $user_id, $message,$post_image) {
     $stmt = $dbh->prepare("INSERT INTO posts( user_id, post_message, post_image) VALUES(?,?,?)");
     $data = [];
