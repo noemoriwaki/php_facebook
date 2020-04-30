@@ -2,11 +2,11 @@
 <?php
 // ログインしていない場合はログイン画面へ飛ぶ
 session_start();
-if (!$_SETTION["login"]) {
-    header('Location: login.php');
-    exit;
-}
-$user = $_SETTION['user'];
+// if (!$_SETTION["login"]) {
+//     header('Location: login.php');
+//     exit;
+// }
+// $user = $_SETTION['user'];
 ?>
 
 <?php
