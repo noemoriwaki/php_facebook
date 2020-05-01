@@ -43,6 +43,9 @@ if ($_SESSION["login"]) {
     <title>ユーザー登録ページ</title>
 </head>
 <body>
+    <!-- 共通のログインnavを読み込み -->
+<?php include("menu.php"); ?>
+
     <h1>ユーザー登録ページ</h1>
         <form action="./registration.php" method="POST">
             <table>

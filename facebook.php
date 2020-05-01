@@ -1,12 +1,13 @@
 <!-- ここからログインの為のコード -->
 <?php
-// ログインしていない場合はログイン画面へ飛ぶ
+// phpの一番初めに記載する必要がある
 session_start();
-// if (!$_SETTION["login"]) {
-//     header('Location: login.php');
-//     exit;
-// }
-// $user = $_SETTION['user'];
+// ログインしていない場合はログイン画面へ飛ぶ　
+if (!$_SETTION["login"]) {
+    header('Location: login.php');
+    exit;
+}
+$user = $_SETTION['user'];
 ?>
 
 <?php
