@@ -1,5 +1,6 @@
-@import "reset.css";
-
+body{
+    background: #F2F3F5;
+}
 button{
     background: #4267b2;
     color: white;
