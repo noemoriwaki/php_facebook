@@ -59,7 +59,7 @@ if ($_SESSION["login"]) {
                     <td><input type="password" name="password" id="" placeholder ="パスワード"></td>
                 </tr>
             </table>
-                    <button type="submit">登録</button>
+                    <button type="submit" id="button">登録</button>
         </form>
 
     <a href="login.php">アカウントをお持ちの方はこちら</a>

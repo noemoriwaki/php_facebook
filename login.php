@@ -6,13 +6,15 @@ session_start();
 require_once("database.php");
 
 // データーベースの読み込み
-function findUserByEmail($dbh,  $email){
-$sql = "SELECT * FROM userData WHERE email = ? ";
+function findUserByEmail($dbh, $email){
+    $sql = 'SELECT * FROM userData WHERE email = ?';
     $stmt = $dbh->prepare($sql);
     $data[] = $email;
     $stmt->execute($data);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+
 // Emailが合っているのか参照
 if (!empty($_POST)) {
     // emailが合っている場合
@@ -31,6 +33,8 @@ if (!empty($_POST)) {
     }
 }
 
+
+
 // ログインしているのか表示
 if ($_SESSION["login"]) {
     echo "ログインしています。";
@@ -46,15 +50,25 @@ if ($_SESSION["login"]) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログインページ</title>
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
     <h1>ログインページ</h1>
         <form action="./login.php" methot="POST">
-        <label>メールアドレス：<input type="Email" name="email"></label><br>
-        <label>パスワード：<input type="password" name="password"></label><br>
-        <button type="submit" name="submit">ログイン</button>
+        <table>
+            <tr>
+                <th>メールアドレス</th>
+                <td><input type="Email" name="email" placeholder="メールアドレス"></td>
+            </tr>
+            <tr>
+                <th>パスワード</th>
+                <td><input type="password" name="password" placeholder="パスワード"></td>
+            </tr>
+        </table>
+        <button type="submit" name="submit" id="submit">ログイン</button>
     </form>
-    <a href="registration.php">新規登録の方はこちらへ</a>
+    <p><a href="registration.php">新規登録の方はこちらへ</a></p>
 
     
 </body>
