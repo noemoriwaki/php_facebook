@@ -44,6 +44,12 @@ if ($_SESSION["login"]) {
 </head>
 <body>
     <!-- 共通のログインnavを読み込み -->
+    <ul>
+        <li><a href="/">ユーザー登録</a></li>
+        <li><a href="/login.php">ログイン</a></li>
+        <li><a href="/logout.php">ログアウト</a></li>
+    </ul>
+
 
     <h1>ユーザー登録ページ</h1>
         <form action="./registration.php" method="POST">
