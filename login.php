@@ -55,7 +55,6 @@ if ($_SESSION["login"]) {
 </head>
 <body>
     <!-- 共通のログインnavを読み込み -->
-<?php include("menu.php"); ?>
 
     <h1>ログインページ</h1>
         <form action="./login.php" methot="POST">

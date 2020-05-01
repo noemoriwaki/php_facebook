@@ -1,3 +1,7 @@
+/* メニュのCSS */
+.menu_list{
+    text-decoration: none;
+}
 body{
     background: #F2F3F5;
 }
