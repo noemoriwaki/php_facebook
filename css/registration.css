@@ -1,11 +1,8 @@
 @import "reset.css";
 
-/* メニュのCSS */
-.menu_list{
-    text-decoration: none;
-}
 body{
     background: #F2F3F5;
+    margin: 0 20%;
 }
 button{
     background: #4267b2;
@@ -27,7 +24,7 @@ th{
 table{
     margin: 0 auto;
 }
-a{
+.move{
     display: block;
     text-align: center;
 }

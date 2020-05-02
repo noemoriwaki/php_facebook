@@ -2,6 +2,7 @@
 
 body{
     background: #F2F3F5;
+    margin: 0 30%;
 }
 button{
     background: #4267b2;
@@ -30,5 +31,6 @@ th,td{
     line-height: 2rem;
 }
 ul{
-    
+    display: block;
+    text-align: left;
 }
