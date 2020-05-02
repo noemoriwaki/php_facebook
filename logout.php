@@ -11,7 +11,6 @@ if (isset($_COOKIE["PHPSESSID"])) {
 
 // セッションの登録データを削除
 session_destroy();
-
 ?>
 
 
