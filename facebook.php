@@ -124,19 +124,19 @@ $result = selectAll($dbh);
                                 <a href="#"><img src="facebook_image/friends01.jpeg" alt=""><p class="friend">友達1</p></a>
                             </div>
                             <div class="content">
-                                <a href="#"><img src="facebook_image/friends02.jpeg" alt=""><p class="friend">友達2</p></a>
+                                <a href="#"><img src="facebook_image/friends02.jpeg" alt=""></a>
                             </div>
                             <div class="content">
-                                <a href="#"><img src="facebook_image/friends03.jpeg" alt=""><p class="friend">友達3</p></a>
+                                <a href="#"><img src="facebook_image/friends03.jpeg" alt=""></a>
                             </div>
                             <div class="content">
-                                <a href="#"><img src="facebook_image/friends04.jpeg" alt=""><p class="friend">友達4</p></a>
+                                <a href="#"><img src="facebook_image/friends04.jpeg" alt=""></a>
                             </div>
                             <div class="content">
-                                <a href="#"><img src="facebook_image/friends05.jpeg" alt=""><p class="friend">友達5</p></a>
+                                <a href="#"><img src="facebook_image/friends05.jpeg" alt=""></a>
                             </div>
                             <div class="content">
-                                <a href="#"><img src="facebook_image/friends06.jpeg" alt=""><p class="friend">友達6</p></a>
+                                <a href="#"><img src="facebook_image/friends06.jpeg" alt=""></a>
                             </div>
                         </div>
             </div>
