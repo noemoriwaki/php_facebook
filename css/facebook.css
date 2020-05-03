@@ -36,6 +36,7 @@
 .content{
     width: 30%;
     padding: 2%;
+    transform: rotate( -90deg );
 }
 
 
