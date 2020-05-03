@@ -1,4 +1,4 @@
-
+@import "reset.css";
 /* 友達 */
 #friends{
     border:1px solid #F2F3F5;
@@ -37,6 +37,7 @@
     width: 30%;
     padding: 2%;
     /* 挿入の画像の向きを変える */
+    transform: rotate( -90deg );
 }
 
 /* 投稿 */

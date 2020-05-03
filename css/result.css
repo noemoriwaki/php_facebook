@@ -1,0 +1,5 @@
+@import "reset.css";
+
+#post p img{ 
+    width: 55%;
+}
