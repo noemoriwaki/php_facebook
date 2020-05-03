@@ -115,12 +115,12 @@ $result = selectAll($dbh);
                 <!-- ここから投稿表示 -->
             <div id="post">
                         <?php foreach( $result as $row):?>
-                            <div class="users_img post_img">
-                                <img class="users_img post_img" src="facebook_image/icon.01.jpeg" alt="users画像">
-                            </div>
                             <div class="post_receive">
+                                <div class="users_img post_img">
+                                    <img class="users_img post_img" src="facebook_image/icon.01.jpeg" alt="users画像">
+                                </div>
 
-                                <p><?php echo $row['user_id'];?></p>
+
                                 <!-- user_nameを表示する -->
                                 <p>Noe Moriwaki</p>
                                 <p><?php echo $row['created_at'];?></p>

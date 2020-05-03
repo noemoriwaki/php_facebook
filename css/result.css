@@ -3,3 +3,36 @@
 #post p img{ 
     width: 55%;
 }
+#post p{
+    display: block;
+    /* text-align: center; */
+    margin: 0 auto;
+}
+#post{
+    border-radius: 20px;
+    margin: 20px 40px;
+    border: 1px solid #F2F3F5;
+}
+.post_receive{
+    margin: 20px 0 0;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+@media screen and (min-width:767px)and (max-width:980px) {
+
+}
+
+ /*--画面サイズが1024pxからはここを読み込む--*/
+ @media screen and (min-width:1024px) {
+    #post{
+        margin: 220px auto;
+        width: 65%;
+    }
+    #post p img{ 
+        width: 45%;
+    }
+    
+
+ }
