@@ -1,8 +1,22 @@
 @import "reset.css";
+/* menu.php */ 
+#list_nav{
+    display: flex;
+    margin-right: 10px;
+}
+#list_nav a{
+    text-decoration: none;
+    padding-right: 10px;
+    border-right: 1px solid #333;
+}
+#list_nav a:last-child{
+    border: none;
+}
+
 
 body{
     background: #F2F3F5;
-    margin: 0 30%;
+    margin: 0 10%;
 }
 button{
     background: #4267b2;
@@ -22,7 +36,7 @@ p{
 }
 th{
     text-align: left;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 table{
     margin: 0 auto;

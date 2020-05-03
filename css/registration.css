@@ -1,4 +1,14 @@
 @import "reset.css";
+/* menu.php */
+#list_nav{
+    display: flex;
+    margin-right: 10px;
+}
+#list_nav a{
+    text-decoration: none;
+    padding-right: 10px;
+}
+
 
 body{
     background: #F2F3F5;
