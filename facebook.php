@@ -2,7 +2,7 @@
 <?php
 // phpの一番初めに記載する必要がある
 session_start();
-// // ログインしていない場合はログイン画面へ飛ぶ　
+// ログインしていない場合はログイン画面へ飛ぶ　
 // if (!$_SETTION["login"]) {
 //     header('Location: login.php');
 //     exit;
@@ -79,7 +79,7 @@ $result = selectAll($dbh);
             <div class="header_logo">
                 <img src="facebook_image/facebook.png" alt="facebookのアイコン画像">
             </div>
-                <form  class="header_seach" action="" method="POST">
+                <form  class="header_seach" action="result.php" method="GET">
                 <input type="text" name="search" placeholder="検索">
                 <button type="submit" name="name" value=""><i class="fas fa-search"></i></button>
                 </form>
