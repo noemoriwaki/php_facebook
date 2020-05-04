@@ -50,6 +50,7 @@ $result = selectAll($dbh, $_GET["search"]);
     <?php include("header.php"); ?>
 
     <!-- ここから検索結果の読み込み -->
+    <h1>投稿の検索ページ</h1>
     <div id="post">
         <?php foreach($result as $row):?>
             <div class="post_receive">
@@ -57,9 +58,9 @@ $result = selectAll($dbh, $_GET["search"]);
                     <img class="users_img post_img" src="facebook_image/icon.01.jpeg" alt="users画像">
                 </div>
                 <!-- user_nameを表示する -->
-                <p>Noe Moriwaki</p>
-                <p><?php echo $row['created_at'];?></p>
-            <p><?php echo $row["post_message"];?></p>
+                <p class="center">Noe Moriwaki</p>
+                <p class="center"><?php echo $row['created_at'];?></p><br>
+                <p class="left"><?php echo $row["post_message"];?></p>
                 <?php if(!empty($row['post_image'])):?>
                  <!-- アップロードされた画像の表示 -->
                  <p><img class="upload_img" src="./upload_dir/<?php echo $row['post_image'];?>"></p>

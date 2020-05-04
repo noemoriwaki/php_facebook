@@ -48,7 +48,7 @@ header img{
 }
 .wrapper_image img{
     display: block;
-    max-width:90%;
+    max-width: 90%;
     margin: 0 auto;
     position: relative;
 }
@@ -72,7 +72,7 @@ header img{
 }
 /* 丸型のアイコン共通 */
 .users_img img{
-    width: 20%;
+    width: 15%;
     border-radius: 50%;
     border: 3px solid white;
 }
@@ -83,7 +83,7 @@ header img{
 }
 .wrapper_img{
     position: absolute;
-    top:60%;
+    top:70%;
     left:8%;
 }
 #users p{

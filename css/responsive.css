@@ -77,15 +77,15 @@
     }
     .wrapper_image img{
         display: block;
-        max-width:70%;
-        height: 700px;
+        width:60%;
+        height: 400px;
         object-fit: cover;
         margin: 0 auto;
     }
     .wrapper_img{
         position: absolute;
         top:70%;
-        left:18%;
+        left:23%;
     }
     
     .wrapper_nav a{
@@ -95,7 +95,7 @@
         position: relative;
         left: 5%;
         color:#385898;
-        padding:5px 15px;
+        padding:0 15px;
         margin: 0 auto;
         line-height: 50px;
     }
@@ -104,13 +104,13 @@
     }
     .wrapper_nav{
         background-color: white;
-        max-width: 65%;
+        max-width: 60%;
         margin: 0 auto;
         text-align: center;
 
     }
     .users_img img{
-        width: 13%;
+        width: 8%;
         border-radius: 50%;
         border: 3px solid white;
     }
@@ -118,7 +118,7 @@
         color:white;
         font-size: 1.5rem;
         position: absolute;
-        top:87%;
+        top:80%;
         left:30%;
         text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
     }

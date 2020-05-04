@@ -140,9 +140,12 @@ font-size: 0.5rem;
 #post p{
     font-size: 8px;
 }
+#post .left{
+    clear: both;
+}
 /* アップロードされた画像の表示 */
 .upload_img{
-    width: 100%;
+    width:80%;
 }
 .upload_img:last-child{
     clear: both;

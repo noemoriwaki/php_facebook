@@ -43,12 +43,21 @@ function create($dbh, $user_id, $message,$post_image) {
 }
 // 全ての投稿データを$resultに入れている
 $result = selectAll($dbh);
+
+// ログインしているのか表示
+if ($_SESSION["login"]) {
+    echo "ログインしています。";
+  } else {
+    echo "ログインしていません。";
+  }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <link rel="stylesheet" href="css/facebook.css">
+        <link rel="stylesheet" href="css/friends.css">
          <title>facebook</title>
     </head>
     <body>
@@ -57,7 +66,7 @@ $result = selectAll($dbh);
 
         <main>
             <div id="friends">
-            <a  class="friends_link" href="#">友達</a><br>
+            <a  class="friends_link" href="friends.php">友達</a><br>
                 <!-- 友達について -->
                     <div class="contents">
                             <div class="content">
@@ -124,7 +133,7 @@ $result = selectAll($dbh);
                                 <!-- user_nameを表示する -->
                                 <p>Noe Moriwaki</p>
                                 <p><?php echo $row['created_at'];?></p>
-                                <p><?php echo $row['post_message'];?> </p>
+                                <p class="left"><?php echo $row['post_message'];?> </p>
 
                             <!-- post_imageが入っている時実行する -->
                                 <?php if (!empty($row['post_image'])): ?>

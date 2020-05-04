@@ -3,10 +3,11 @@
 #post p img{ 
     width: 55%;
 }
-#post p{
-    display: block;
-    /* text-align: center; */
-    margin: 0 auto;
+#post .left{
+    clear: both;
+}
+#post .center{
+    font-size: 10px;
 }
 #post{
     border-radius: 20px;
@@ -17,6 +18,12 @@
     margin: 20px 0 0;
     background-color: white;
     border-radius: 10px;
+}
+.post_img img{
+    float: left;
+}
+h1{
+    text-align: center;
 }
 
 
@@ -33,6 +40,7 @@
     #post p img{ 
         width: 45%;
     }
+    
     
 
  }
