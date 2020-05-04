@@ -26,3 +26,23 @@
     padding-left: 5%;
     border-radius: 2px;
 }
+
+/*--画面サイズが768pxから1024pxまではここを読み込む--*/
+@media screen and (min-width:767px)and (max-width:980px) {
+    .table td{
+        width: 60%;
+        padding: 5% 0% ;
+        border: 1px solid #f5f6f7;
+    }
+
+}
+
+ /*--画面サイズが1024pxからはここを読み込む--*/
+ @media screen and (min-width:1024px) {
+    .table td{
+        width: 60%;
+        padding: 5% 0% ;
+        border: 1px solid #f5f6f7;
+    }
+    
+ }

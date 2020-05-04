@@ -103,7 +103,7 @@ font-size: 0.5rem;
 }
 /* post全体へのcss */
 #post{
-    width: 80%;
+    width: 50%;
     border: 1px solid #F2F3F5;
     margin:20px auto;
     border-radius: 20px;
@@ -142,10 +142,12 @@ font-size: 0.5rem;
 }
 #post .left{
     clear: both;
+    font-size: 1rem;
 }
 /* アップロードされた画像の表示 */
 .upload_img{
-    width:80%;
+    max-width:45%;
+    justify-content: center;
 }
 .upload_img:last-child{
     clear: both;

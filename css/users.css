@@ -8,8 +8,11 @@ body{
     text-decoration: none;
   }
   /* テーブルタグの線 */
+table{
+    margin: 0 auto;
+}
 table th,td{
-    border: 1px solid #F2F3F5;
+    border-bottom: 1px solid #F2F3F5;
     line-height: 2.8;
     padding:5px;
 }
@@ -23,9 +26,10 @@ table td{
 /* 表全体のCSS */
 #profile{
     background: white;
-    width: 80%;
+    width: 90%;
     text-align: center;
     margin: 0 auto;
+    border-radius: 20px;
 }
 h1{
     margin: 20px 0;
@@ -35,10 +39,34 @@ h1{
 /* formタグに適用していく */
 input[type="text"]{
    text-align: left; 
-   padding:5px;
+   width: 100%;
 }
 input[type="submit"]{
     width: 60%;
     background-color: #4267b2;
     color: white;
 }
+/* user_iconの画像 */
+.users_img img{
+    width: 8%;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+/* プレビューのcss */
+/* #preview{
+
+} */
+
+
+
+/*--画面サイズが768pxから1024pxまではここを読み込む--*/
+@media screen and (min-width:767px)and (max-width:980px) {
+}
+
+ /*--画面サイズが1024pxからはここを読み込む--*/
+ @media screen and (min-width:1024px) {
+    #profile{
+        width: 80%;
+    }
+
+ }
