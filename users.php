@@ -3,7 +3,7 @@ $uploaded = false;
 if (!empty($_FILES['user_image'])) { 
   $upload_icon = './upload_icon/';
   $user_image = $upload_icon . basename($_FILES['user_image']['name']);
-  move_uploaded_file($_FILES['user_image']['tmp_name'], $uploaded_file);
+  move_uploaded_file($_FILES['user_image']['tmp_name'], $uploaded_image);
   $uploaded = true;
 }
 // アップしたファイルの読み込み
@@ -20,7 +20,7 @@ function create($dbh, $user_icon, $user_wrapper) {
     $stmt->execute($data);
 }
  function selectAll($dbh){
-    $stmt = $dbh->prepare('SELECT * FROM user_file ORDER BY updated_at DESC');
+    $stmt = $dbh->prepare('SELECT * FROM user_image ORDER BY updated_at DESC');
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
@@ -49,14 +49,14 @@ $result = selectAll($dbh);
 
         <h1>基本データの編集</h1>
     
-            <form id="profile" action="base.php" method="POST">
+            <form id="profile" action="base.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="name" value="value"/>
                 <table>
                         <!-- user_name -->
-                        <tr>
+                        <!-- <tr>
                             <th><label for="user_name">お名前</label></th>
                             <td><input type="text" name="user_name" placeholder="ユーザーの名前を入力して下さい"></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th><label>勤務先</label></th>
                             <td><input type="text" name="employer" placeholder="お勤め先はどこですか？"></td>
@@ -76,7 +76,7 @@ $result = selectAll($dbh);
                         <!-- user_icon -->
                         <tr>
                             <th><label for="user_icon">アイコン</label></th>
-                            <td><span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="user_image" type="file" id="display" onchange="previewImage(this);"/></span></td>
+                            <td><span class="filelabel" tiltle="ファイルを選択"></i><input name="user_image" type="file" id="display" onchange="previewImage(this);"/></span></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="submit" name="record" value="登録する"></td>
@@ -95,17 +95,6 @@ $result = selectAll($dbh);
                                         fileReader.readAsDataURL(obj.files[0]);
                                     }
                                 </script>    
-                <!-- user_iconのみほん                     -->
-                    <div class="users_img wrapper_img">
-                        <p>表示するアイコンの見本</p>
-                    <!-- user_imageが入っている時実行する -->
-                        <?php if (!empty($result['user_image'])): ?>
-                    <!-- アップロードされた画像の表示 -->
-                        <img class="user_img" src="./upload_icon/<?php echo $result['user_icon'];?>">
-                                <?php endif ?><br>
-                        <!-- <img src="facebook_image/icon.01.jpeg" alt="icon画像"> -->
-                    </div>
-
     </body>
 </html>
 

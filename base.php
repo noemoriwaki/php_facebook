@@ -5,16 +5,14 @@
 // データベースの読み込み
 
 require_once("database.php");
-function create($dbh, $user_name, $employer, $alma_mater, $home_address, $birth_place) {
-    $stmt = $dbh->prepare("INSERT INTO users( user_name,employer, alma_mater, home_address, birthplace ) VALUES(?,?,?,?,?)");
+function create($dbh, $employer, $alma_mater, $home_address, $birth_place) {
+    $stmt = $dbh->prepare("INSERT INTO users( employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?,?)");
     $data = [];
-    $data[] = $user_name;//入力する順番が大事。上のcreateと同じ順番で入力する
-    // $data[] = $user_icon;
-    // $data[] = $user_header_image;
+    //入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $employer;
     $data[] = $alma_mater;
     $data[] = $home_address;
-    $data[] = $birthplace;
+    $data[] = $birth_place;
     $stmt->execute($data);
 }
  function selectAll($dbh){
@@ -24,7 +22,7 @@ function create($dbh, $user_name, $employer, $alma_mater, $home_address, $birth_
  }
 // $_POSTが入っている時にcreateを実行する
 if (!empty($_POST)) {
-    create($dbh, $_POST["user_name"],  $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birthplace"]);
+    create($dbh, $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birth_place"]);
 }
 
 
