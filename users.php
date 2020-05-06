@@ -1,9 +1,9 @@
 <?php
 $uploaded = false;
-if (!empty($_FILES['user_image'])) { 
+if (!empty($_FILES['uploaded_file'])) { 
   $upload_icon = './upload_icon/';
-  $user_image = $upload_icon . basename($_FILES['user_image']['name']);
-  move_uploaded_file($_FILES['user_image']['tmp_name'], $uploaded_image);
+  $uploaded_file = $upload_icon . basename($_FILES['uploaded_file']['name']);
+  move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
 }
 // アップしたファイルの読み込み
@@ -14,6 +14,7 @@ require_once("database.php");
 // データベースに登録
 function create($dbh, $user_icon, $user_wrapper) {
     $stmt = $dbh->prepare("INSERT INTO user_image( user_icon, user_wrapper) VALUES(?,?)");
+
     $data = [];
     $data[] = $user_icon;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $user_wrapper;
@@ -26,11 +27,12 @@ function create($dbh, $user_icon, $user_wrapper) {
  }
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
-     create($dbh, basename($_FILES['user_image']['name']));
+     create($dbh, basename($_FILES['uploaded_file']['name']));
 }
 // 全ての投稿データを$resultに入れている
 $result = selectAll($dbh);
-
+// var_dump($result);
+var_dump($_FILES['uploaded_file']);
 
 
 ?>
@@ -76,7 +78,7 @@ $result = selectAll($dbh);
                         <!-- user_icon -->
                         <tr>
                             <th><label for="user_icon">アイコン</label></th>
-                            <td><span class="filelabel" tiltle="ファイルを選択"></i><input name="user_image" type="file" id="display" onchange="previewImage(this);"/></span></td>
+                            <td><span class="filelabel" tiltle="ファイルを選択"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="submit" name="record" value="登録する"></td>
@@ -84,6 +86,7 @@ $result = selectAll($dbh);
                     </table>
             </from>
                     <!-- プレビュー --><br>
+                    <h2>アイコン画像</h2>
                         <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:10%;">
                                 <script>
                                     function previewImage(obj)

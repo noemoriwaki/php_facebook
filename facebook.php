@@ -22,7 +22,6 @@ if (!empty($_FILES['uploaded_file'])) {
 $images = glob('./upload_dir/*');
 // データベースの読み込み
 require_once("database.php");
-
 // データベースに登録
 function create($dbh, $user_id, $message,$post_image) {
     $stmt = $dbh->prepare("INSERT INTO posts( user_id, post_message, post_image) VALUES(?,?,?)");
