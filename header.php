@@ -1,4 +1,24 @@
+<?php
+// アップしたファイルの読み込み
+// アイコン
+$images = glob('./upload_icon/*');
 
+// データベースの読み込み
+require_once("database.php");
+
+function selectAll($dbh){
+    $stmt = $dbh->prepare('SELECT * FROM user_image ORDER BY updated_at DESC');
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+ }
+// 全ての投稿データを$resultに入れている
+$result = selectAll($dbh);
+// var_dump($result);
+var_dump($_FILES['uploaded_file']);
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -55,6 +75,8 @@
             <div id="users">
                 <a href="#"><p>Noe Moriwaki</p></a>
                     <div class="users_img wrapper_img">
+                    <img src="./upload_icon/<?php echo $row['user_icon'];?>">
+
                         <img src="facebook_image/icon.01.jpeg" alt="icon画像">
                     </div>
             </div>

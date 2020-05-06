@@ -1,4 +1,5 @@
 <?php
+
 $uploaded = false;
 if (!empty($_FILES['uploaded_file'])) { 
   $upload_icon = './upload_icon/';
@@ -6,33 +7,26 @@ if (!empty($_FILES['uploaded_file'])) {
   move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
 }
-// アップしたファイルの読み込み
-$images = glob('./upload_icon/*');
+
+
+
+
+
 // データベースの読み込み
 require_once("database.php");
 
 // データベースに登録
 function create($dbh, $user_icon, $user_wrapper) {
     $stmt = $dbh->prepare("INSERT INTO user_image( user_icon, user_wrapper) VALUES(?,?)");
-
     $data = [];
     $data[] = $user_icon;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $user_wrapper;
     $stmt->execute($data);
 }
- function selectAll($dbh){
-    $stmt = $dbh->prepare('SELECT * FROM user_image ORDER BY updated_at DESC');
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
- }
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
      create($dbh, basename($_FILES['uploaded_file']['name']));
 }
-// 全ての投稿データを$resultに入れている
-$result = selectAll($dbh);
-// var_dump($result);
-var_dump($_FILES['uploaded_file']);
 
 
 ?>
@@ -73,7 +67,7 @@ var_dump($_FILES['uploaded_file']);
                         </tr>
                         <tr>
                             <th><label>出身地</label></th>
-                            <td><input type="text" name="birthplace" placeholder="出身地はどこですか？"></td>
+                            <td><input type="text" name="birth_place" placeholder="出身地はどこですか？"></td>
                         </tr>
                         <!-- user_icon -->
                         <tr>
