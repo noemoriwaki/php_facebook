@@ -7,7 +7,7 @@
 // データベースの読み込み
 require_once("database.php");
 function create($dbh, $employer, $alma_mater, $home_address, $birth_place) {
-    $stmt = $dbh->prepare("INSERT INTO users( employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?,?)");
+    $stmt = $dbh->prepare("INSERT INTO users( employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?)");
     $data = [];
     //入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $employer;
