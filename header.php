@@ -1,8 +1,8 @@
 <?php
 
 // アップしたファイルの読み込み
-$images = glob('./upload_icon/*');
-
+// $images = glob('./upload_icon/*');
+// var_dump("$images");
 
 // データベースの読み込み
 require_once("database.php");
@@ -19,7 +19,20 @@ function run($dbh, $user_icon) {
  if (!empty($_POST)) {
      run($dbh, basename($_FILES['uploaded_file']['name']));
 }
-var_dump("$_POST");
+
+function select($dbh){
+    $stmt = $dbh->prepare('SELECT * FROM posts ORDER BY updated_at DESC');
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+ }
+// $_POSTが入っている時にcreateを実行する
+ if (!empty($_POST)) {
+     run($dbh, basename($_FILES['uploaded_file']['name']));
+}
+// 全ての投稿データを$resultに入れている
+$result = select($dbh);
+
+
 
 ?>
 
