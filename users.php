@@ -1,35 +1,3 @@
-<?php
-
-$uploaded = false;
-if (!empty($_FILES['uploaded_file'])) { 
-  $upload_icon = './upload_icon/';
-  $uploaded_file = $upload_icon . basename($_FILES['uploaded_file']['name']);
-  move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
-  $uploaded = true;
-}
-
-
-
-
-
-// データベースの読み込み
-require_once("database.php");
-
-// データベースに登録
-function create($dbh, $user_icon, $user_wrapper) {
-    $stmt = $dbh->prepare("INSERT INTO user_image( user_icon, user_wrapper) VALUES(?,?)");
-    $data = [];
-    $data[] = $user_icon;//入力する順番が大事。上のcreateと同じ順番で入力する
-    $data[] = $user_wrapper;
-    $stmt->execute($data);
-}
-// $_POSTが入っている時にcreateを実行する
- if (!empty($_POST)) {
-     create($dbh, basename($_FILES['uploaded_file']['name']));
-}
-
-
-?>
 
 <!-- マイページの編集ページ -->
 <!DOCTYPE html>
@@ -69,29 +37,14 @@ function create($dbh, $user_icon, $user_wrapper) {
                             <th><label>出身地</label></th>
                             <td><input type="text" name="birth_place" placeholder="出身地はどこですか？"></td>
                         </tr>
-                        <!-- user_icon -->
-                        <tr>
-                            <th><label for="user_icon">アイコン</label></th>
-                            <td><span class="filelabel" tiltle="ファイルを選択"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span></td>
-                        </tr>
                         <tr>
                             <td colspan="2"><input type="submit" name="record" value="登録する"></td>
                         </tr>
                     </table>
             </from>
-                    <!-- プレビュー --><br>
-                    <h2>アイコン画像</h2>
-                        <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:10%;">
-                                <script>
-                                    function previewImage(obj)
-                                    {
-                                        var fileReader = new FileReader();
-                                        fileReader.onload = (function() {
-                                            document.getElementById('preview').src = fileReader.result;
-                                        });
-                                        fileReader.readAsDataURL(obj.files[0]);
-                                    }
-                                </script>    
+            <div>
+                <a href="images.php">アイコン画像の登録</a>
+            </div>
     </body>
 </html>
 

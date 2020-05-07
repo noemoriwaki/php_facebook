@@ -1,22 +1,25 @@
 <?php
+
 // アップしたファイルの読み込み
-// アイコン
 $images = glob('./upload_icon/*');
+
 
 // データベースの読み込み
 require_once("database.php");
 
-function selectAll($dbh){
-    $stmt = $dbh->prepare('SELECT * FROM user_image ORDER BY updated_at DESC');
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
- }
-// 全ての投稿データを$resultに入れている
-$result = selectAll($dbh);
-// var_dump($result);
-var_dump($_FILES['uploaded_file']);
-
-
+// データベースに登録
+function run($dbh, $user_icon) {
+    $stmt = $dbh->prepare("INSERT INTO user_image( user_icon) VALUES(?)");
+    $data = [];
+    $data[] = $user_icon;//入力する順番が大事。上のrunと同じ順番で入力する
+    // $data[] = $user_wrapper;
+    $stmt->execute($data);
+}
+// $_POSTが入っている時にrunを実行する
+ if (!empty($_POST)) {
+     run($dbh, basename($_FILES['uploaded_file']['name']));
+}
+var_dump("$_POST");
 
 ?>
 
@@ -75,9 +78,7 @@ var_dump($_FILES['uploaded_file']);
             <div id="users">
                 <a href="#"><p>Noe Moriwaki</p></a>
                     <div class="users_img wrapper_img">
-                    <img src="./upload_icon/<?php echo $row['user_icon'];?>">
-
-                        <img src="facebook_image/icon.01.jpeg" alt="icon画像">
+                     <img src="./upload_icon/<?php echo $_FILES['uploaded_file'];?>">
                     </div>
             </div>
             <div class="wrapper_nav">

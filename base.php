@@ -6,14 +6,14 @@
 
 // データベースの読み込み
 require_once("database.php");
-function create($dbh, $employer, $alma_mater, $home_address, $birth_place) {
-    $stmt = $dbh->prepare("INSERT INTO users( employer, alma_mater, home_address, birth_place ) VALUES(?,?,?,?)");
+function create($dbh, $employer, $alma_mater, $home_address, $birthplace) {
+    $stmt = $dbh->prepare("INSERT INTO users( employer, alma_mater, home_address, birthplace ) VALUES(?,?,?,?)");
     $data = [];
     //入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $employer;
     $data[] = $alma_mater;
     $data[] = $home_address;
-    $data[] = $birth_place;
+    $data[] = $birthplace;
     $stmt->execute($data);
 }
  function selectAll($dbh){
@@ -23,7 +23,7 @@ function create($dbh, $employer, $alma_mater, $home_address, $birth_place) {
  }
 // $_POSTが入っている時にcreateを実行する
 if (!empty($_POST)) {
-    create($dbh, $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birth_place"]);
+    create($dbh, $_POST["employer"], $_POST["alma_mater"],$_POST["home_address"],$_POST["birthplace"]);
 }
 
 
@@ -66,7 +66,7 @@ $result = selectAll($dbh);
                     </tr>
                     <tr>
                         <th>出身地</th>
-                        <td><?php echo $row['birth_place'];?></td>
+                        <td><?php echo $row['birthplace'];?></td>
                     </tr>
                     <?php endforeach ?>
                 </table>
