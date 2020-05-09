@@ -8,7 +8,6 @@ if (!empty($_FILES['uploaded_file'])) {
   move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
 $uploaded = false;
-var_dump("$_FILES");
 }
 
 

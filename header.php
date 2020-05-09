@@ -16,24 +16,20 @@ function run($dbh, $user_icon) {
     // $data[] = $user_wrapper;
     $stmt->execute($data);
 }
-// $_POSTが入っている時にrunを実行する
- if (!empty($_POST)) {
-     run($dbh, basename($_FILES['uploaded_file']['name']));
-    // var_dump($_FILES);
-}
-
 function select($dbh){
     $stmt = $dbh->prepare('SELECT * FROM posts ORDER BY updated_at DESC');
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
-// $_POSTが入っている時にcreateを実行する
+ // $_POSTが入っている時にrunを実行する
  if (!empty($_POST)) {
-     run($dbh, basename($_FILES['uploaded_file']['name']));
+    run($dbh, basename($_FILES['uploaded_file']['name']));
+   // var_dump($_FILES);
 }
 
+
 // 全ての投稿データを$resultに入れている
-$images = select($dbh);
+$result = select($dbh);
 // var_dump("$result");
 
 
@@ -95,7 +91,7 @@ $images = select($dbh);
             <div id="users">
                 <a href="#"><p>Noe Moriwaki</p></a>
                     <div class="users_img wrapper_img">
-                     <img src="<?php echo $images["user_icon"];?>">
+                     <img src="<?php echo $result["user_icon"];?>">
                     </div>
             </div>
             <div class="wrapper_nav">
