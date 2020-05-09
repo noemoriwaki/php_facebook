@@ -1,5 +1,4 @@
 <?php
-
 // アップしたファイルの読み込み
 $images = glob('./upload_icon/*');
 // var_dump("$images");
@@ -105,5 +104,7 @@ $result = select($dbh);
                 </nav>
             </div>
         </div>
-</body>
-</html>
+<!-- 他のページで読み込むため、HTMLが他のページで読み込んだときに、
+ここで終わってしまわないように消しておく -->
+    <!-- </body>
+</html> -->

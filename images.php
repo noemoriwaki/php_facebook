@@ -27,6 +27,7 @@ $uploaded = false;
          <!-- 投稿を入力と送信 -->
 
         <form action="header.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="name" value="value"/>
         <!-- user_icon -->
             <label for="user_icon">アイコン</label><br>
             <span class="filelabel" tiltle="ファイルを選択"><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
