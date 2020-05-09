@@ -1,7 +1,7 @@
 <?php
 
 // アップしたファイルの読み込み
-// $images = glob('./upload_icon/*');
+$images = glob('./upload_icon/*');
 // var_dump("$images");
 
 
