@@ -4,6 +4,7 @@
 // $images = glob('./upload_icon/*');
 // var_dump("$images");
 
+
 // データベースの読み込み
 require_once("database.php");
 
@@ -18,6 +19,7 @@ function run($dbh, $user_icon) {
 // $_POSTが入っている時にrunを実行する
  if (!empty($_POST)) {
      run($dbh, basename($_FILES['uploaded_file']['name']));
+    // var_dump($_FILES);
 }
 
 function select($dbh){
@@ -29,8 +31,10 @@ function select($dbh){
  if (!empty($_POST)) {
      run($dbh, basename($_FILES['uploaded_file']['name']));
 }
+
 // 全ての投稿データを$resultに入れている
-$result = select($dbh);
+$images = select($dbh);
+// var_dump("$result");
 
 
 
@@ -91,7 +95,7 @@ $result = select($dbh);
             <div id="users">
                 <a href="#"><p>Noe Moriwaki</p></a>
                     <div class="users_img wrapper_img">
-                     <img src="./upload_icon/<?php echo $_FILES['uploaded_file'];?>">
+                     <img src="<?php echo $images["user_icon"];?>">
                     </div>
             </div>
             <div class="wrapper_nav">

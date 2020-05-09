@@ -7,8 +7,9 @@ if (!empty($_FILES['uploaded_file'])) {
   $uploaded_file = $upload_icon . basename($_FILES['uploaded_file']['name']);
   move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
+$uploaded = false;
+var_dump("$_FILES");
 }
-
 
 
 ?>
@@ -25,9 +26,6 @@ if (!empty($_FILES['uploaded_file'])) {
 <body>
     <div>
          <!-- 投稿を入力と送信 -->
-        <?php if ($uploaded): ?>
-            <p class="upload"><?php echo "ファイルのアップロードが完了しました。";?></p>
-         <?php endif ?>
 
         <form action="header.php" method="POST" enctype="multipart/form-data">
         <!-- user_icon -->
