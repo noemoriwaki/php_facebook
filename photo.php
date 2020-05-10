@@ -6,12 +6,6 @@ $images = glob('./upload_dir/*');
 
 require_once("database.php");
 
-function create($dbh, $post_image) {
-    $stmt = $dbh->prepare("INSERT INTO posts( user_id, post_image) VALUES(?,?)");
-    $data = [];
-    $data[] = $post_image;
-    $stmt->execute($data);
-}
 function selectAll($dbh){
     $stmt = $dbh->prepare('SELECT * FROM posts ORDER BY updated_at DESC');
     $stmt->execute();

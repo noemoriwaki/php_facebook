@@ -1,5 +1,4 @@
 <?php
-
 // ファイルのアップロード
 $uploaded = false;
 if (!empty($_FILES['uploaded_file'])) { 
@@ -8,6 +7,7 @@ if (!empty($_FILES['uploaded_file'])) {
   move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
 $uploaded = false;
+var_dump($_FILES['uploaded_file']);
 }
 
 
@@ -26,11 +26,14 @@ $uploaded = false;
     <div>
          <!-- 投稿を入力と送信 -->
 
-        <form action="header.php" method="POST" enctype="multipart/form-data">
+        <form action="images.php" method="POST" enctype="multipart/form-data">
+        <form enctype="multipart/form-data" action="facebook.php" method="POST">
+
         <input type="hidden" name="name" value="value"/>
         <!-- user_icon -->
             <label for="user_icon">アイコン</label><br>
             <span class="filelabel" tiltle="ファイルを選択"><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
+            
             <!-- <input type="file" name="wrapper" id="wrapper"><br> -->
             <button type="submit" name="submit">アイコン画像の登録</button>
         </form>

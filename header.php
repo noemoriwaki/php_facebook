@@ -16,7 +16,7 @@ function run($dbh, $user_icon) {
     $stmt->execute($data);
 }
 function select($dbh){
-    $stmt = $dbh->prepare('SELECT * FROM posts ORDER BY updated_at DESC');
+    $stmt = $dbh->prepare('SELECT * FROM user_image ORDER BY updated_at DESC');
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
@@ -29,7 +29,7 @@ function select($dbh){
 
 // 全ての投稿データを$resultに入れている
 $result = select($dbh);
-// var_dump("$result");
+// var_dump($result);
 
 
 
@@ -90,11 +90,11 @@ $result = select($dbh);
             <div id="users">
                 <a href="#"><p>Noe Moriwaki</p></a>
                     <div class="users_img wrapper_img">
-                     <img src="<?php echo $result["user_icon"];?>">
+                     <img class="header_img" src="./upload_icon/<?php  echo $result['user_icon'];?>">
                     </div>
             </div>
             <div class="wrapper_nav">
-                <nav>
+                <nav> 
                     <a href="facebook.php">タイムライン</a>
                     <a href="base.php">基本データ</a>
                     <a href="friends.php">友達</a>

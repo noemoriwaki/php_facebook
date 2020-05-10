@@ -18,6 +18,13 @@ if (!empty($_FILES['uploaded_file'])) {
   move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
   $uploaded = true;
 }
+$uploaded = false;
+if (!empty($_FILES['uploaded_file2'])) { 
+  $upload_dir = './upload_dir/';
+  $uploaded_file = $upload_dir . basename($_FILES['uploaded_file2']['name']);
+  move_uploaded_file($_FILES['uploaded_file2']['tmp_name'], $uploaded_file);
+  $uploaded = true;
+}
 // アップしたファイルの読み込み
 $images = glob('./upload_dir/*');
 // データベースの読み込み
@@ -103,6 +110,7 @@ if ($_SESSION["login"]) {
                                 <input type="hidden" name="name" value="value"/>
                                 <!-- プレビューの為のコード -->
                                 <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
+                                <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file2" type="file" id="display" onchange="previewImage(this);"/></span>
                                 <!-- 投稿のエリア -->
                                 <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea><br>
                                 <button type="submit" name="btn_submit"><i class="fas fa-pen"></i>投稿を作成</button>
