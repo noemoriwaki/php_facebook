@@ -29,6 +29,7 @@ function create($dbh, $user_id, $message,$post_image) {
     $data[] = $user_id;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $message;
     $data[] = $post_image;
+    /* ステートメント（文）を実行します */
     $stmt->execute($data);
 }
  function selectAll($dbh){

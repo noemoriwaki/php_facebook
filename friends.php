@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-        <link rel="stylesheet" href="css/facebook.css">
         <link rel="stylesheet" href="css/friends.css">
          <title>基本ページ</title>
     </head>
