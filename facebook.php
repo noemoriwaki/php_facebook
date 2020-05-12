@@ -166,7 +166,7 @@ if ($_SESSION["login"]) {
                                         // ここでサーバーからの応答を処理します。
 
                                         // この関数では何を行うべきでしょうか。
-                                        // 最初に、この関数ではリクエストの状態を調べる必要があります。
+                                        // この関数ではリクエストの状態を調べる必要がある。
                                         // ステータス値が XMLHttpRequest.DONE (4 に対応) であるなら、
                                         // サーバーからの応答が完了しており、処理を進められることを意味します。
                                         if (httpRequest.readyState === XMLHttpRequest.DONE) {
@@ -206,7 +206,7 @@ if ($_SESSION["login"]) {
                                 <!-- 友達の投稿form -->
                                 <form action="facebook.php" method="get">
                                     <input type="text" name = "friend_name" placeholder ="お名前"></label><br>
-                                    <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="50" rows=3></textarea>
+                                    <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="35" rows=3></textarea>
                                     <input type="submit" name="friend_submit" id="friend_submit" value="投稿">
                                 </form>
                             </div>
