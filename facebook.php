@@ -30,9 +30,10 @@ $images = glob('./upload_dir/*');
 // データベースの読み込み
 require_once("database.php");
 // データベースに登録
-function create($dbh, $user_id, $message,$post_image) {
-    $stmt = $dbh->prepare("INSERT INTO posts( user_id, post_message, post_image) VALUES(?,?,?)");
+function create($dbh, $post_id, $user_id, $message,$post_image) {
+    $stmt = $dbh->prepare("INSERT INTO posts( post_id, user_id, post_message, post_image) VALUES(?,?,?,?)");
     $data = [];
+    $data[] = $post_id;
     $data[] = $user_id;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $message;
     $data[] = $post_image;
@@ -46,7 +47,7 @@ function create($dbh, $user_id, $message,$post_image) {
  }
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
-     create($dbh, "1", $_POST["message"], basename($_FILES['uploaded_file']['name']));
+     create($dbh,$_POST["post_id"],  "1", $_POST["message"], basename($_FILES['uploaded_file']['name']));
 }
 // 全ての投稿データを$resultに入れている
 $result = selectAll($dbh);
@@ -152,7 +153,8 @@ if ($_SESSION["login"]) {
                             <!-- いいねボタンを実装 -->
                             <div class="iine_btn">
                                 <div class="iine">
-                                    <button onclick="iine(this)">いいね！</button><span class="count">0</span>
+                                <!-- post_idを取得するとできるのか？ -->
+                                    <button onclick="iine(this,><?php $row['post_id'];?>)">いいね！</button><span class="count">0</span>
                                 </div>
                                 
                                 <script>
