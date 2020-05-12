@@ -169,9 +169,11 @@ font-size: 0.5rem;
 
 
 
+/* いいね機能 */
+
 
 /* btn */
-.aiin-btn {
+/* .iine-btn {
 	position:relative;
 	display:inline-block;
 	padding:3px;
@@ -182,34 +184,34 @@ font-size: 0.5rem;
 	-webkit-tap-highlight-color:transparent;
     line-height:1;
     
-}
+} */
 /* .aiin-btn.aiin-sel {
 } */
-.aiin-btn.aiin-not-allowed {
+/* .iine-btn.iine-not-allowed {
 	cursor:default;
-}
+} */
 /* triangle */
-.aiin-triangle,
-.aiin-triangle-1,
-.aiin-triangle-2 {
+/* .iine-triangle,
+.iine-triangle-1,
+.iine-triangle-2 {
 	width:5px;
 	height:5px;
 }
-.aiin-triangle {
+.iine-triangle {
 	position:relative;
 	left:-2.5px;
 	margin:0 auto;
 }
-.aiin-triangle-1 {
+.iine-triangle-1 {
 	position:relative;
 }
-.aiin-triangle-2 {
+.iine-triangle-2 {
 	position:absolute;
 	top:0;
 	left:0;
 }
-.aiin-triangle-rect-1,
-.aiin-triangle-rect-2 {
+.iine-triangle-rect-1,
+.iine-triangle-rect-2 {
 	position:relative;
 	width:0;
 	font-size:0;
@@ -217,15 +219,15 @@ font-size: 0.5rem;
 	border-width:5px 5px;
 	border-style:solid;
 }
-.aiin-triangle-rect-1 {
+.iine-triangle-rect-1 {
 	border-color:#aaa transparent transparent transparent;
 }
-.aiin-triangle-rect-2 {
+.iine-triangle-rect-2 {
 	top:-1px;
 	border-color:#fff transparent transparent transparent;
-}
+} */
 /* balbox */
-.aiin-balbox {
+/* .iine-balbox {
 	padding:5px 8px;
 	font-size:16px;
 	line-height:1;
@@ -235,37 +237,37 @@ font-size: 0.5rem;
 	text-align:center;
 	vertical-align:middle;
 	box-shadow:inset 1px 1px 1px 0 #ddd;
-}
+} */
 /* vcnt & label */
-.aiin-vcnt,
-.aiin-label {
+/* .iine-vcnt,
+.iine-label {
 	position:relative;
 	vertical-align:baseline;
-}
-/* vcnt */
-.aiin-vcnt {
+} */
+/* vcntカウント */
+/* .iine-vcnt {
 	color:#000;
 	font-size:13px;
 	line-height:12px;
-}
+} */
 /* handle */
-.aiin-handle {
+/* .iine-handle {
 	position:relative;
 	padding:2px 8px;
 	background-color:#4267b2;
 	border-radius:3px;
 	text-align:center;
 	vertical-align:middle;
-}
-/* .aiin-handle:action{
+} */
+/* .iine-handle:action{
 
 } */
 /* label */
-.aiin-label {
+/* .iine-label {
 	font-size:12px;
 	line-height:11px;
 	color:#fff;
 }
-.aiin-btn.aiin-sel .aiin-label {
+.iine-btn.iine-sel .iine-label {
 	color:#ff0;
-}
+} */
