@@ -110,7 +110,7 @@ if ($_SESSION["login"]) {
 
                                 <input type="hidden" name="name" value="value"/>
                                 <!-- プレビューの為のコード -->
-                                <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
+                                <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span><br>
                                 <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file2" type="file" id="display" onchange="previewImage(this);"/></span>
                                 <!-- 投稿のエリア -->
                                 <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea><br>
