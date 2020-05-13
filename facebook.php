@@ -154,7 +154,7 @@ if ($_SESSION["login"]) {
                             <div class="iine_btn">
                                 <div class="iine">
                                 <!-- post_idを取得するとできるのか？ -->
-                                    <button onclick="iine(this,<?php $row['post_id'];?>)">いいね！</button><span class="count">0</span>
+                                    <button onclick="iine(this,<?php echo $row['post_id'];?>)">いいね！</button><span class="count">0</span>
                                 </div>
                                 
                                 <script>
