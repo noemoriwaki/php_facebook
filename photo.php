@@ -11,8 +11,9 @@ function selectAll($dbh){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
-// 全ての投稿データを$resultに入れている
-$result = selectAll($dbh);
+
+// 全ての投稿データを$lotに入れている
+$lot = selectAll($dbh);
 
 // ログインしているのか表示
 if ($_SESSION["login"]) {
@@ -29,15 +30,16 @@ if ($_SESSION["login"]) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-         <title>基本ページ</title>
+        <link rel="stylesheet" href="photo.css">
+         <title>写真</title>
     </head>
     <body>
     <!-- 共通のヘッダー部分の読み込み -->
     <?php include("header.php"); ?>
     
                 <!-- 写真一覧 -->
-        <div id="photos">
-            <?php foreach($result as $row):?>
+        <div id="photo">
+            <?php foreach($lot as $row):?>
                 <p><?php echo $row["post_image"]; ?></p>
             <?php endforeach ?>
         </div>

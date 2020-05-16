@@ -1,0 +1,6 @@
+@import "reset.css";
+
+#photo p{
+    display: flex;
+    /* float: left; */
+}

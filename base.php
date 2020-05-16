@@ -28,7 +28,7 @@ if (!empty($_POST)) {
 
 
 // 全ての投稿データを$resultに入れている
-$result = selectAll($dbh);
+$lot = selectAll($dbh);
 
 
 ?>
@@ -50,7 +50,7 @@ $result = selectAll($dbh);
             <a href="users.php"><h1>基本データの編集する</h1></a>
 
                 <table class="table">
-                <?php foreach( $result as $row):?>
+                <?php foreach( $lot as $row):?>
 
                     <tr>
                         <th>勤務先</th>
@@ -74,14 +74,3 @@ $result = selectAll($dbh);
     </body>   
 </html>
 
-        <!-- ユーザー情報(users)
-  - ID(id) int
-  - 名前(user_name) varchar(100)
-  - アイコン画像(user_icon) varchar(100)
-  - ヘッダー画像(user_header_image) varchar(100)
-  - 勤務先(employer) varchar(200)
-  - 出身校(alma_mater) varchar(200)
-  - 住んでいる場所(home_address) varchar(200)
-  - 出身地(birthplace) varchar(200)
-  - 作成日(created_at) datetime
-  - 更新日(updated_at) datetime -->

@@ -30,12 +30,11 @@ $images = glob('./upload_dir/*');
 // データベースの読み込み
 require_once("database.php");
 // データベースに登録
-function create($dbh, $post_id, $user_id, $message,$post_image) {
-    $stmt = $dbh->prepare("INSERT INTO posts( post_id, user_id, post_message, post_image) VALUES(?,?,?,?)");
+function create($dbh, $post_id, $post_message,$post_image) {
+    $stmt = $dbh->prepare("INSERT INTO posts( post_id, post_message, post_image) VALUES(?,?,?)");
     $data = [];
-    $data[] = $post_id;
-    $data[] = $user_id;//入力する順番が大事。上のcreateと同じ順番で入力する
-    $data[] = $message;
+    $data[] = $post_id;//入力する順番が大事。上のcreateと同じ順番で入力する
+    $data[] = $post_message;
     $data[] = $post_image;
     /* ステートメント（文）を実行します */
     $stmt->execute($data);
@@ -47,10 +46,34 @@ function create($dbh, $post_id, $user_id, $message,$post_image) {
  }
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
-     create($dbh,$_POST["post_id"],  "1", $_POST["message"], basename($_FILES['uploaded_file']['name']));
+     create($dbh,$_POST["post_id"], $_POST["post_message"], basename($_FILES['uploaded_file']['name']));
 }
 // 全ての投稿データを$resultに入れている
-$result = selectAll($dbh);
+$lot = selectAll($dbh);
+
+
+// ここから友達の投稿について
+function run($dbh, $friend_name, $friend_message) {
+    $stmt = $dbh->prepare("INSERT INTO friendM( friend_name, friend_message) VALUES(?,?)");
+    $data = [];
+    $data[] = $friend_name;//入力する順番が大事。上のcreateと同じ順番で入力する
+    $data[] = $friend_message;
+    /* ステートメント（文）を実行します */
+    $stmt->execute($data);
+}
+ function selectAll($dbh){
+    $stmt = $dbh->prepare('SELECT * FROM friendM ORDER BY updated_at DESC');
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+ }
+// $_POSTが入っている時にcreateを実行する
+ if (!empty($_POST)) {
+     create($dbh,$_POST["friend_name"], $_POST["friend_message"]);
+}
+// 全ての投稿データを$resultに入れている
+$many = selectAll($dbh);
+
+
 
 // ログインしているのか表示
 if ($_SESSION["login"]) {
@@ -113,7 +136,7 @@ if ($_SESSION["login"]) {
                                 <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span><br>
                                 <span class="filelabel" tiltle="ファイルを選択"><i class="fas fa-camera"></i><input name="uploaded_file2" type="file" id="display" onchange="previewImage(this);"/></span>
                                 <!-- 投稿のエリア -->
-                                <textarea name="message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea><br>
+                                <textarea name="post_message" id="contents" cols="100" rows="10" placeholder="今なにしてる？"></textarea><br>
                                 <button type="submit" name="btn_submit"><i class="fas fa-pen"></i>投稿を作成</button>
                             </form>
                             <!-- プレビュー --><br>
@@ -132,7 +155,7 @@ if ($_SESSION["login"]) {
             </div>
                 <!-- ここから投稿表示 -->
             <div id="post">
-                        <?php foreach( $result as $row):?>
+                        <?php foreach( $lot as $row):?>
                             <div class="post_receive">
                                 <div class="users_img post_img">
                                     <img class="users_img post_img" src="facebook_image/icon.01.jpeg" alt="users画像">
@@ -165,7 +188,6 @@ if ($_SESSION["login"]) {
                                     httpRequest.onreadystatechange = function(){
                                         // ここでサーバーからの応答を処理します。
 
-                                        // この関数では何を行うべきでしょうか。
                                         // この関数ではリクエストの状態を調べる必要がある。
                                         // ステータス値が XMLHttpRequest.DONE (4 に対応) であるなら、
                                         // サーバーからの応答が完了しており、処理を進められることを意味します。
@@ -187,22 +209,6 @@ if ($_SESSION["login"]) {
                                     }
                                 </script>
                              </div>
-                                <!-- <div class="aiin-btn">
-                                    <div class="aiin-balbox">
-                                        <span class="aiin-vcnt"></span>
-                                    </div>
-                                    <div class="aiin-triangle">
-                                        <div class="aiin-triangle-1">
-                                            <div class="aiin-triangle-rect-1"></div>
-                                        </div>
-                                        <div class="aiin-triangle-2">
-                                            <div class="aiin-triangle-rect-2"></div>
-                                        </div>
-                                    </div>
-                                    <div class="aiin-handle">
-                                        <span class="aiin-label">いいね!</span>
-                                    </div>
-                                </div> -->
                                 <!-- 友達の投稿form -->
                                 <form action="facebook.php" method="get">
                                     <input type="text" name = "friend_name" placeholder ="お名前"></label><br>
@@ -212,10 +218,10 @@ if ($_SESSION["login"]) {
                             </div>
                             <!-- 友達の投稿表示 -->
                             <div class="friend_post">
-                                <?php if(isset($_POST['friend_name'])):?>
-                                    <p class="friend_comment">投稿者：<?php echo $_POST['friend_name'];?></p>
-                                    <p class="friend_comment">コメント：<?php echo $_POST['friend_text'];?></p>
-                                <?php endif ?>
+                                <?php foreach($many as $row):?>
+                                    <p class="friend_comment">投稿者：<?php echo $_row['friend_name'];?></p>
+                                    <p class="friend_comment">コメント：<?php echo $_row['friend_message'];?></p>
+                                <?php endforeach ?>
                             </div>
                         <?php endforeach ?>
             </div>
