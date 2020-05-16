@@ -31,7 +31,7 @@ $images = glob('./upload_dir/*');
 require_once("database.php");
 // データベースに登録
 function create($dbh, $post_id, $post_message,$post_image) {
-    $stmt = $dbh->prepare("INSERT INTO posts( post_id, post_message, post_image) VALUES(?,?,?)");
+    $stmt = $dbh->prepare("INSERT INTO posts (post_id, post_message, post_image) VALUES(?,?,?)");
     $data = [];
     $data[] = $post_id;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $post_message;
@@ -53,8 +53,8 @@ $lot = selectAll($dbh);
 
 
 // ここから友達の投稿について
-function run($dbh, $friend_name, $friend_message) {
-    $stmt = $dbh->prepare("INSERT INTO friendM( friend_name, friend_message) VALUES(?,?)");
+function run($dbh, $friend_name, $friend_message){
+    $stmt = $dbh->prepare("INSERT INTO friendM(friend_name, friend_message) VALUES(?,?)");
     $data = [];
     $data[] = $friend_name;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $friend_message;
@@ -65,6 +65,7 @@ function run($dbh, $friend_name, $friend_message) {
     $stmt = $dbh->prepare('SELECT * FROM friendM ORDER BY updated_at DESC');
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
  }
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
