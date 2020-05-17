@@ -53,15 +53,16 @@ $lot = selectAll($dbh);
 
 
 // ここから友達の投稿について
-function run($dbh, $friend_name, $friend_message){
-    $stmt = $dbh->prepare("INSERT INTO friendM(friend_name, friend_message) VALUES(?,?)");
+// データベースに登録
+function execution($dbh, $friend_name, $friend_message){
+    $stmt = $dbh->prepare("INSERT INTO friendM (friend_name, friend_message) VALUES(?,?)");
     $data = [];
     $data[] = $friend_name;//入力する順番が大事。上のcreateと同じ順番で入力する
     $data[] = $friend_message;
     /* ステートメント（文）を実行します */
     $stmt->execute($data);
 }
- function selectAll($dbh){
+ function choice($dbh){
     $stmt = $dbh->prepare('SELECT * FROM friendM ORDER BY updated_at DESC');
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -69,10 +70,10 @@ function run($dbh, $friend_name, $friend_message){
  }
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
-     create($dbh,$_POST["friend_name"], $_POST["friend_message"]);
+     execution($dbh,$_POST["friend_name"], $_POST["friend_message"]);
 }
 // 全ての投稿データを$resultに入れている
-$many = selectAll($dbh);
+$many = choice($dbh);
 
 
 
@@ -211,7 +212,7 @@ if ($_SESSION["login"]) {
                                 </script>
                              </div>
                                 <!-- 友達の投稿form -->
-                                <form action="facebook.php" method="get">
+                                <form action="facebook.php" method="POST">
                                     <input type="text" name = "friend_name" placeholder ="お名前"></label><br>
                                     <textarea name="friend_text" id="friend_text" placeholder ="コメントを入力" cols="35" rows=3></textarea>
                                     <input type="submit" name="friend_submit" id="friend_submit" value="投稿">
@@ -219,9 +220,9 @@ if ($_SESSION["login"]) {
                             </div>
                             <!-- 友達の投稿表示 -->
                             <div class="friend_post">
-                                <?php foreach($many as $row):?>
-                                    <p class="friend_comment">投稿者：<?php echo $_row['friend_name'];?></p>
-                                    <p class="friend_comment">コメント：<?php echo $_row['friend_message'];?></p>
+                                <?php foreach($many as $one):?>
+                                    <p class="friend_message">投稿者：<?php echo $_one['friend_name'];?></p>
+                                    <p class="friend_message">コメント：<?php echo $_one['friend_message'];?></p>
                                 <?php endforeach ?>
                             </div>
                         <?php endforeach ?>
