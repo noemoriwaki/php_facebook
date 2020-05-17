@@ -44,16 +44,7 @@ function create($dbh, $post_id, $post_message,$post_image) {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
-// $_POSTが入っている時にcreateを実行する
- if (!empty($_POST)) {
-     create($dbh,$_POST["post_id"], $_POST["post_message"], basename($_FILES['uploaded_file']['name']));
-}
-// 全ての投稿データを$resultに入れている
-$lot = selectAll($dbh);
-
-
-// ここから友達の投稿について
-// データベースに登録
+ // ここから友達の投稿についての関数　データベースに登録
 function execution($dbh, $friend_name, $friend_message){
     $stmt = $dbh->prepare("INSERT INTO friendM (friend_name, friend_message) VALUES(?,?)");
     $data = [];
@@ -65,9 +56,19 @@ function execution($dbh, $friend_name, $friend_message){
  function choice($dbh){
     $stmt = $dbh->prepare('SELECT * FROM friendM ORDER BY updated_at DESC');
     $stmt->execute();
+    //execute配列にする
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  
  }
+
+// $_POSTが入っている時にcreateを実行する
+ if (!empty($_POST)) {
+     create($dbh,$_POST["post_id"], $_POST["post_message"], basename($_FILES['uploaded_file']['name']));
+}
+// 全ての投稿データを$resultに入れている
+$lot = selectAll($dbh);
+
+
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
      execution($dbh,$_POST["friend_name"], $_POST["friend_message"]);
@@ -162,8 +163,6 @@ if ($_SESSION["login"]) {
                                 <div class="users_img post_img">
                                     <img class="users_img post_img" src="facebook_image/icon.01.jpeg" alt="users画像">
                                 </div>
-
-
                                 <!-- user_nameを表示する -->
                                 <p>Noe Moriwaki</p>
                                 <p><?php echo $row['created_at'];?></p>
