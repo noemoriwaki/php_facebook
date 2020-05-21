@@ -6,14 +6,14 @@ $images = glob('./upload_dir/*');
 
 require_once("database.php");
 
-function selectAll($dbh){
+function choice($dbh){
     $stmt = $dbh->prepare('SELECT * FROM posts ORDER BY updated_at DESC');
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
 
 // 全ての投稿データを$lotに入れている
-$lot = selectAll($dbh);
+$lot = choice($dbh);
 
 // ログインしているのか表示
 if ($_SESSION["login"]) {
@@ -39,8 +39,9 @@ if ($_SESSION["login"]) {
     
                 <!-- 写真一覧 -->
         <div id="photo">
-            <?php foreach($lot as $row):?>
-                <p><?php echo $row["post_image"]; ?></p>
+            <?php foreach($lot as $one):?>
+                <img class="upload_img" src="./upload_dir/<?php echo $one['post_image'];?>">
+
             <?php endforeach ?>
         </div>
     </body>

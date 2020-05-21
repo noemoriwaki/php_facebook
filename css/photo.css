@@ -1,6 +1,8 @@
-@import "reset.css";
+/* @import "reset.css"; */
 
-#photo p{
+#photo img{
     display: flex;
-    /* float: left; */
+}
+#photo .upload_img{
+    max-width: 30%;
 }
