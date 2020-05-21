@@ -1,8 +1,11 @@
 /* @import "reset.css"; */
 
-#photo img{
-    display: flex;
+#photo{
+    width: 80%;
+    margin: 0 auto;
 }
 #photo .upload_img{
     max-width: 30%;
+    display: block flex;
+    /* float: left; */
 }

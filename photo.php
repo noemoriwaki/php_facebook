@@ -30,7 +30,7 @@ if ($_SESSION["login"]) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-        <link rel="stylesheet" href="photo.css">
+        <link rel="stylesheet" href="CSS/photo.css">
          <title>写真</title>
     </head>
     <body>
