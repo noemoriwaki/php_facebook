@@ -100,29 +100,9 @@ if ($_SESSION["login"]) {
         <?php include("header.php"); ?>
 
         <main>
-            <div id="friends">
-            <a  class="friends_link" href="friends.php">友達</a><br>
+            <div class="friends">
                 <!-- 友達について -->
-                    <div class="contents">
-                            <div class="content">
-                                <a href="#"><img src="facebook_image/friends01.jpeg" alt=""><p class="friend">友達1</p></a>
-                            </div>
-                            <div class="content">
-                                <a href="#"><img src="facebook_image/friends02.jpeg" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <a href="#"><img src="facebook_image/friends03.jpeg" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <a href="#"><img src="facebook_image/friends04.jpeg" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <a href="#"><img src="facebook_image/friends05.jpeg" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <a href="#"><img src="facebook_image/friends06.jpeg" alt=""></a>
-                            </div>
-                        </div>
+                <?php include("friends02.php");?>
             </div>
             <!-- ここから投稿ページ -->
                 <div id="form">
@@ -221,8 +201,8 @@ if ($_SESSION["login"]) {
                             <!-- 友達の投稿表示 -->
                             <div class="friend_post">
                                 <?php foreach($many as $one):?>
-                                    <p class="friend_message">投稿者：<?php echo $_one['friend_name'];?></p>
-                                    <p class="friend_message">コメント：<?php echo $_one['friend_message'];?></p>
+                                    <p class="friend_message">投稿者：<?php echo $one['friend_name'];?></p>
+                                    <p class="friend_message">コメント：<?php echo $one['friend_message'];?></p>
                                 <?php endforeach ?>
                             </div>
                         <?php endforeach ?>

@@ -10,31 +10,7 @@
     <!-- 共通のヘッダー部分の読み込み -->
     <?php include("header.php"); ?>
     
-                <!-- 友達の一覧 -->
-        <div id="friends">
-                <!-- 友達について -->
-            <a  class="friends_link" href="#"><p>友達</p></a>
-                <div class="contents">
-                    <div class="content">
-                        <a href="#"><img src="facebook_image/friends01.jpeg" alt=""></a>
-                    </div>
-                    <div class="content">
-                        <a href="#"><img src="facebook_image/friends02.jpeg" alt=""></a>
-                    </div>
-                    <div class="content">
-                        <a href="#"><img src="facebook_image/friends03.jpeg" alt=""></a>
-                    </div>
-                    <div class="content">
-                        <a href="#"><img src="facebook_image/friends04.jpeg" alt=""></a>
-                    </div>
-                    <div class="content">
-                        <a href="#"><img src="facebook_image/friends05.jpeg" alt=""></a>
-                    </div>
-                    <div class="content">
-                        <a href="#"><img src="facebook_image/friends06.jpeg" alt=""></a>
-                    </div>
-                </div>
-        </div>
+    <?php include("friends02.php");?>
 <!-- 
         <div id="friends">
             <div class="user_id1">

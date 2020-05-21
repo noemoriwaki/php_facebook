@@ -34,6 +34,14 @@
     width: 30%;
     transform: rotate( -90deg );
 }
-\
+
+/*--画面サイズが768pxから1024pxまではここを読み込む--*/
+@media screen and (min-width:767px)and (max-width:980px) {
+
+}
+ /*--画面サイズが1024pxからはここを読み込む--*/
+ @media screen and (min-width:1024px) {
+     
+ }
 
     
