@@ -11,15 +11,5 @@
     <?php include("header.php"); ?>
     
     <?php include("friends02.php");?>
-<!-- 
-        <div id="friends">
-            <div class="user_id1">
-                <a href=""><img src="" alt="">友達1</a>
-            </div>
-            <div class="user_id2">
-                <a href=""><img src="" alt="">友達2</a>
-            </div>
-        </div> -->
-
     </body>
 </html>
