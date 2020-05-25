@@ -1,4 +1,5 @@
 <?php
+// phpinfo();
 // ファイルのアップロード
 $uploaded = false;
 if (!empty($_FILES['uploaded_file'])) { 

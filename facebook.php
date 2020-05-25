@@ -92,7 +92,7 @@ if ($_SESSION["login"]) {
 <html lang="ja">
     <head>
         <link rel="stylesheet" href="css/facebook.css">
-        <link rel="stylesheet" href="css/friends.css">
+        <!-- <link rel="stylesheet" href="css/friends.css"> -->
          <title>facebook</title>
     </head>
     <body>
