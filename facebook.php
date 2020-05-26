@@ -79,21 +79,19 @@ function execution($dbh, $friend_name, $friend_message){
  if (!empty($_POST)) {
      create($dbh,$_POST["post_id"], "1",$_POST["post_message"], basename($_FILES['uploaded_file']['name']), basename($_FILES['uploaded_file2']['name']));
 }
-// 全ての投稿データを$lotに入れている
-$lot = selectAll($dbh);
-
-
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
      execution($dbh,$_POST["friend_name"], $_POST["friend_message"]);
 }
-// 全ての投稿データを$manyに入れている
-$many = choice($dbh);
-
 //  images.phpのiconの処理
 if (!empty($_POST)) {
     img($dbh, basename($_FILES['uploaded_file3']['name']));
 }
+// 全ての投稿データを$lotに入れている
+$lot = selectAll($dbh);
+// 全ての投稿データを$manyに入れている
+$many = choice($dbh);
+
 
 
 

@@ -43,7 +43,7 @@
                     </table>
             </from>
             <div>
-                <a href="images.php">アイコン画像の登録</a>
+                <a href="images.html">アイコン画像の登録</a>
             </div>
     </body>
 </html>
