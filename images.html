@@ -1,19 +1,3 @@
-<?php
-// phpinfo();
-// ファイルのアップロード
-$uploaded = false;
-if (!empty($_FILES['uploaded_file'])) { 
-  $upload_icon = './upload_icon/';
-  $uploaded_file = $upload_icon . basename($_FILES['uploaded_file']['name']);
-  move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $uploaded_file);
-  $uploaded = true;
-$uploaded = false;
-var_dump($_FILES['uploaded_file']);
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -24,16 +8,17 @@ var_dump($_FILES['uploaded_file']);
     <title>アイコン画像編集画面</title>
 </head>
 <body>
+
     <div>
          <!-- 投稿を入力と送信 -->
 
-        <form action="images.php" method="POST" enctype="multipart/form-data">
+        <!-- <form action="images.php" method="POST" enctype="multipart/form-data"> -->
         <form enctype="multipart/form-data" action="facebook.php" method="POST">
 
         <input type="hidden" name="name" value="value"/>
         <!-- user_icon -->
             <label for="user_icon">アイコン</label><br>
-            <span class="filelabel" tiltle="ファイルを選択"><input name="uploaded_file" type="file" id="display" onchange="previewImage(this);"/></span>
+            <span class="filelabel" tiltle="ファイルを選択"><input name="uploaded_file3" type="file" id="display" onchange="previewImage(this);"/></span>
             
             <!-- <input type="file" name="wrapper" id="wrapper"><br> -->
             <button type="submit" name="submit">アイコン画像の登録</button>
@@ -49,6 +34,9 @@ var_dump($_FILES['uploaded_file']);
                             fileReader.readAsDataURL(obj.files[0]);
                         }
                 </script>    
+        </div>
+        <div class="home">
+            <a href="facebook.php">ホームへ</a>
         </div>
 
 </body>

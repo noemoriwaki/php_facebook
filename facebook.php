@@ -11,6 +11,7 @@ session_start();
 ?>
 
 <?php
+// 投稿のファイルのアップロード
 $uploaded = false;
 if (!empty($_FILES['uploaded_file'])) { 
   $upload_dir = './upload_dir/';
@@ -25,8 +26,22 @@ if (!empty($_FILES['uploaded_file2'])) {
   move_uploaded_file($_FILES['uploaded_file2']['tmp_name'], $uploaded_file);
   $uploaded = true;
 }
+// iconのアップロード
+$uploaded = false;
+if (!empty($_FILES['uploaded_file3'])) { 
+  $upload_icon = './upload_icon/';
+  $uploaded_file = $upload_icon . basename($_FILES['uploaded_file3']['name']);
+  move_uploaded_file($_FILES['uploaded_file3']['tmp_name'], $uploaded_file);
+  $uploaded = true;
+$uploaded = false;
+// var_dump($_FILES['uploaded_file']);
+}
+
 // アップしたファイルの読み込み
 $images = glob('./upload_dir/*');
+// images.phpのiconファイルの読み込み
+$photos = glob('./upload_icon/*');
+
 // データベースの読み込み
 require_once("database.php");
 // データベースに登録
@@ -59,14 +74,12 @@ function execution($dbh, $friend_name, $friend_message){
     $stmt->execute();
     //execute配列にする
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
- 
  }
-
 // $_POSTが入っている時にcreateを実行する
  if (!empty($_POST)) {
-     create($dbh,$_POST["post_id"], "1",$_POST["post_message"], basename($_FILES['uploaded_file']['name']));
+     create($dbh,$_POST["post_id"], "1",$_POST["post_message"], basename($_FILES['uploaded_file']['name']), basename($_FILES['uploaded_file2']['name']));
 }
-// 全ての投稿データを$resultに入れている
+// 全ての投稿データを$lotに入れている
 $lot = selectAll($dbh);
 
 
@@ -74,8 +87,13 @@ $lot = selectAll($dbh);
  if (!empty($_POST)) {
      execution($dbh,$_POST["friend_name"], $_POST["friend_message"]);
 }
-// 全ての投稿データを$resultに入れている
+// 全ての投稿データを$manyに入れている
 $many = choice($dbh);
+
+//  images.phpのiconの処理
+if (!empty($_POST)) {
+    img($dbh, basename($_FILES['uploaded_file3']['name']));
+}
 
 
 
